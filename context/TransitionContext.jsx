@@ -1,6 +1,6 @@
 "use client";
 
-import { createContext, useContext, useState, useRef, useEffect } from "react";
+import { createContext, useContext, useState, useRef, useEffect, useCallback, useMemo } from "react";
 import { useRouter, usePathname } from "next/navigation";
 
 const TransitionContext = createContext({});
@@ -21,14 +21,14 @@ export function TransitionProvider({ children }) {
     return () => clearTimeout(t);
   }, [pathname]);
 
-  const navigateTo = (href, x, y) => {
+  const navigateTo = useCallback((href, x, y) => {
     if (phase !== "idle" || href === pathname) return;
     setClickPos({ x, y });
     target.current = href;
     setPhase("covering");
-  };
+  }, [phase, pathname]);
 
-  const onCoverDone = () => {
+  const onCoverDone = useCallback(() => {
     pending.current = true;
     router.push(target.current);
     // Fallback if pathname doesn't change
@@ -38,14 +38,16 @@ export function TransitionProvider({ children }) {
         setPhase("revealing");
       }
     }, 600);
-  };
+  }, [router]);
 
-  const onRevealDone = () => setPhase("idle");
+  const onRevealDone = useCallback(() => setPhase("idle"), []);
+
+  const value = useMemo(() => ({
+    phase, clickPos, navigateTo, onCoverDone, onRevealDone
+  }), [phase, clickPos, navigateTo, onCoverDone, onRevealDone]);
 
   return (
-    <TransitionContext.Provider
-      value={{ phase, clickPos, navigateTo, onCoverDone, onRevealDone }}
-    >
+    <TransitionContext.Provider value={value}>
       {children}
     </TransitionContext.Provider>
   );

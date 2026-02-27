@@ -32,7 +32,7 @@ export default function CircleTransition() {
       controls.set({ clipPath: full });
       controls.start({ clipPath: zero, ...anim }).then(onRevealDone);
     }
-  }, [phase]);
+  }, [phase, clickPos.x, clickPos.y, controls, onCoverDone, onRevealDone]);
 
   return (
     <motion.div
