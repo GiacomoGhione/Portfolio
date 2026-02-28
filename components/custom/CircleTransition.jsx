@@ -26,11 +26,19 @@ export default function CircleTransition() {
     const anim = { transition: { duration: 0.8, ease: EASE } };
 
     if (phase === "covering") {
+      document.documentElement.style.overflow = "hidden";
+      document.documentElement.style.scrollbarGutter = "stable";
+
       controls.set({ clipPath: zero });
       controls.start({ clipPath: full, ...anim }).then(onCoverDone);
     } else {
       controls.set({ clipPath: full });
-      controls.start({ clipPath: zero, ...anim }).then(onRevealDone);
+      controls.start({ clipPath: zero, ...anim }).then(() => {
+        document.documentElement.style.overflow = "";
+        document.documentElement.style.scrollbarGutter = "";
+
+        onRevealDone();
+      });
     }
   }, [phase, clickPos.x, clickPos.y, controls, onCoverDone, onRevealDone]);
 
