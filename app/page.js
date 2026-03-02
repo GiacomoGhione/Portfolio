@@ -37,13 +37,13 @@ export default function Home() {
           </div>
 
           {/* Heading */}
-          <h1 className="font-sans text-4xl leading-tight tracking-tight text-balance sm:text-5xl lg:text-6xl xl:text-7xl text-muted-foreground z-40">
+          <h1 className="font-sans leading-tight tracking-tight text-balance font-medium text-5xl lg:text-6xl xl:text-7xl text-muted-foreground z-40">
             Trasforma il tuo corpo,{" "}
             <span className="text-foreground">riscopri te stesso</span>
           </h1>
 
           {/* Description */}
-          <p className="font-sans lg:max-w-xl xl:max-w-2xl text-xl leading-relaxed tracking-wider text-balance text-muted-foreground z-40">
+          <p className="font-sans text-xl lg:max-w-xl xl:max-w-2xl leading-relaxed text-balance tracking-wide text-muted-foreground z-40">
             Sono un nutrizionista e personal trainer, insieme raggiungeremo
             risultati concreti e duraturi nel tempo.
           </p>
