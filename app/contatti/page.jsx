@@ -1,7 +1,9 @@
+import PageShell from "@/components/custom/PageShell";
+
 export default function Contatti() {
   return (
-    <main className="flex min-h-screen flex-col items-center justify-center p-24">
+    <PageShell>
       <h1 className="text-4xl font-bold">Contatti</h1>
-    </main>
+    </PageShell>
   );
 }

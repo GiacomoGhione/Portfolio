@@ -15,8 +15,8 @@ export function BackToTop() {
   }, []);
 
   return (
-    <div className="sticky bottom-4 pointer-events-none z-50">
-      <div className="container mx-auto px-4 flex">
+    <div className="sticky bottom-4 h-0 pointer-events-none z-40">
+      <div className="container mx-auto px-4 -translate-y-full">
         <AnimatePresence>
           {isVisible && (
             <motion.button

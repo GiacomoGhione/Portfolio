@@ -2,14 +2,6 @@ import { Instagram, Linkedin, Mail, Phone, Clock, MapPin } from "lucide-react";
 
 import TransitionLink from "./TransitionLink";
 
-const navLinks = [
-  { href: "/", label: "Home" },
-  { href: "/chi-sono", label: "Chi sono" },
-  { href: "/metodo", label: "Metodo" },
-  { href: "/servizi", label: "Servizi" },
-  { href: "/contatti", label: "Contatti" },
-];
-
 const socialLinks = [
   {
     icon: Instagram,
@@ -24,16 +16,16 @@ const socialLinks = [
 ];
 
 const infoLinks = [
-  { label: "P.IVA", value: "12345678901" },
-  { label: "Titolo", value: "Nutrizionista" },
-  { label: "Albo", value: "Albo Nazionale dei Biologi n. 12345" },
   { label: "Email", value: "giacomo.ghione1702@gmail.com", icon: Mail },
   { label: "Telefono", value: "+39 333 739 9940", icon: Phone },
-  { label: "Orari", value: "Lun-Ven 9:00-18:00", icon: Clock },
+  { label: "Albo", value: "BIO. SEZ.A - PLV_A4432" },
+  { label: "P.IVA", value: "01773900053" },
+  { label: "Ateco", value: "72.10.10" },
+  { label: "Polizza", value: "RCM20100049052" },
   {
     label: "Posizione",
     value: "https://maps.app.goo.gl/DhAfZ3zvLBYBi6My8",
-    address: "Castagnole delle Lanze",
+    address: "I Santi, Castagnole Lanze (AT)",
     icon: MapPin,
   },
 ];
@@ -56,14 +48,15 @@ export default function Footer() {
           <div className="flex flex-col gap-4">
             <TransitionLink
               href="/"
-              className="text-4xl font-bold tracking-wide"
+              className="text-3xl font-bold tracking-wide"
             >
               Giacomo Ghione
             </TransitionLink>
             <p className="text-md leading-relaxed">
-              Nutrizionista e Personal Trainer. Aiuto le persone a raggiungere i
-              loro obiettivi di salute e benessere attraverso piani alimentari
-              personalizzati e programmi di allenamento su misura.
+              Il tuo nutrizionista e Personal Trainer. Aiuto le persone a
+              raggiungere i loro obiettivi di salute e benessere attraverso
+              piani alimentari personalizzati e programmi di allenamento su
+              misura.
             </p>
             <div className="flex items-center gap-4">
               {socialLinks.map(({ icon: Icon, href, label }) => (
@@ -81,36 +74,47 @@ export default function Footer() {
             </div>
           </div>
 
-          <div className="flex flex-col gap-12 lg:flex-row lg:gap-24 xl:gap-32 2xl:gap-40 justify-end">
+          <div className="flex flex-col gap-12 lg:flex-row lg:gap-8 xl:gap-32 2xl:gap-40 justify-end">
             {/* Second col */}
-            <nav>
-              <p className="text-xs font-medium uppercase tracking-widest mb-4">
-                Navigazione
-              </p>
-              <ul className="flex flex-col gap-2">
-                {navLinks.map((link) => (
-                  <li key={link.href}>
-                    <TransitionLink
-                      href={link.href}
-                      className="text-sm text-background/75 hover:text-background transition-colors duration-500"
-                    >
-                      {link.label}
-                    </TransitionLink>
-                  </li>
-                ))}
-              </ul>
-            </nav>
+            <div>
+              <h1 className="text-xs font-medium uppercase tracking-widest mb-4">
+                Informazioni
+              </h1>
+              <ul className="flex flex-col gap-3 text-sm">
+                {infoLinks.map(({ label, value }) => {
+                  const isIva = label === "P.IVA";
+                  const isAlbo = label === "Albo";
+                  const isAteco = label === "Ateco";
+                  const isPolizza = label === "Polizza";
 
+                  const content = (
+                    <div className="flex items-center gap-1 text-sm text-background/75 hover:text-background transition-colors duration-500">
+                      {label && (
+                        <>
+                          <span>{label}</span>
+                          <span className="">-</span>
+                        </>
+                      )}
+                      <span>{value}</span>
+                    </div>
+                  );
+
+                  if (isIva || isAlbo || isAteco || isPolizza) {
+                    return <li key={label}>{content}</li>;
+                  }
+                })}
+              </ul>
+            </div>
             {/* Third col */}
             <div>
-              <p className="text-xs font-medium uppercase tracking-widest mb-4">
+              <h1 className="text-xs font-medium uppercase tracking-widest mb-4">
                 Contatti
-              </p>
-              <ul className="flex flex-col gap-3">
+              </h1>
+              <ul className="flex flex-col gap-3 text-sm">
                 {infoLinks.map(({ label, value, icon: Icon, address }) => {
                   const isEmail = label === "Email";
                   const isPhone = label === "Telefono";
-                  const isLink = label === "Posizione";
+                  const isPosition = label === "Posizione";
 
                   const content = (
                     <div className="flex items-center gap-2 text-sm text-background/75 hover:text-background transition-colors duration-500">
@@ -135,7 +139,7 @@ export default function Footer() {
                       </li>
                     );
                   }
-                  if (isLink) {
+                  if (isPosition) {
                     return (
                       <li key={label}>
                         <a
@@ -156,19 +160,14 @@ export default function Footer() {
 
         {/* Bottom bar */}
         <div className="mt-12 pt-12 border-t border-background/25 flex flex-col justify-between items-center xl:flex-row gap-4">
-          <span>
-            © {year} Giacomo Ghione —{" "}
-            {infoLinks.find((i) => i.label === "P.IVA")?.label}{" "}
-            {infoLinks.find((i) => i.label === "P.IVA")?.value}
-          </span>
+          <span>© {year} - Giacomo Ghione</span>
           <div className="flex flex-col xl:flex-row text-center gap-4">
-            <span>{infoLinks.find((i) => i.label === "Albo")?.value}</span>
             <div className="flex items-center gap-4">
               {legale.map((item) => (
                 <TransitionLink
                   key={item.label}
                   href={item.href}
-                  className="hover:text-background transition-colors duration-500"
+                  className="text-background/75 hover:text-background transition-colors duration-500"
                 >
                   {item.label}
                 </TransitionLink>
