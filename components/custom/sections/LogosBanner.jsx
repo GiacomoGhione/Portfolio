@@ -14,7 +14,7 @@ const phrases = [
 
 export default function LogosBanner() {
   return (
-    <section className="relative container mx-auto px-4 pb-4">
+    <section className="relative container mx-auto px-4 lg:pb-4">
       {/* Fade edges */}
       <div className="pointer-events-none absolute inset-y-0 left-0 z-10 w-24 bg-linear-to-r from-background to-transparent" />
       <div className="pointer-events-none absolute inset-y-0 right-0 z-10 w-24 bg-linear-to-l from-background to-transparent" />

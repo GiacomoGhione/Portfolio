@@ -74,7 +74,7 @@ export default function Footer() {
           <div className="flex flex-col gap-12 lg:flex-row lg:gap-8 xl:gap-32 2xl:gap-40 justify-end">
             {/* Second col */}
             <div>
-              <h1 className="text-md leading-relaxed font-medium uppercase mb-4">
+              <h1 className="text-md leading-relaxed uppercase mb-3">
                 Informazioni
               </h1>
               <ul className="flex flex-col gap-3 text-sm">
@@ -104,7 +104,7 @@ export default function Footer() {
             </div>
             {/* Third col */}
             <div>
-              <h1 className="text-md leading-relaxed font-medium uppercase mb-4">
+              <h1 className="text-md leading-relaxed uppercase mb-3">
                 Contatti
               </h1>
               <ul className="flex flex-col gap-3 text-sm">

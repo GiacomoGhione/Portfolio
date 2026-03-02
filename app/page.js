@@ -19,7 +19,7 @@ import Image from "next/image";
 
 export default function Home() {
   return (
-    <PageShell className="lg:py-0!">
+    <PageShell className="lg:pt-0!">
       <div className="grid gap-12 lg:gap-4 lg:grid-cols-2 lg:items-center min-h-svh lg:h-svh">
         {/* Left: Text content */}
         <div className="flex flex-col gap-6 lg:gap-4 relative">
