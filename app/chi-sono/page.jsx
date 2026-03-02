@@ -1,7 +1,9 @@
-import PageShell from "@/components/custom/PageShell";
-import SectionHeader from "@/components/custom/SectionHeader";
-import ActivityCard from "@/components/custom/ActivityCard";
-import ExperienceTimeline from "@/components/custom/ExperienceTimeline";
+import PageShell from "@/components/custom/layout/PageShell";
+import SectionHeader from "@/components/custom/ui/SectionHeader";
+import ActivityCard from "@/components/custom/sections/ActivityCard";
+import ExperienceTimeline from "@/components/custom/sections/ExperienceTimeline";
+import TransitionButton from "@/components/custom/ui/TransitionButton";
+import { ArrowRight } from "lucide-react";
 
 const activities = [
   {

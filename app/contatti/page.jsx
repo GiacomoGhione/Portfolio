@@ -1,8 +1,8 @@
-import PageShell from "@/components/custom/PageShell";
+import PageShell from "@/components/custom/layout/PageShell";
 import { Mail, MapPin, Phone, Clock, Contact } from "lucide-react";
-import TransitionButton from "@/components/custom/TransitionButton";
-import SectionHeader from "@/components/custom/SectionHeader";
-import ContactForm from "@/components/custom/ContactForm";
+import TransitionButton from "@/components/custom/ui/TransitionButton";
+import SectionHeader from "@/components/custom/ui/SectionHeader";
+import ContactForm from "@/components/custom/sections/ContactForm";
 
 const contactInfo = [
   {
@@ -33,7 +33,7 @@ const contactInfo = [
 
 export default function Contatti() {
   return (
-    <PageShell>
+    <PageShell banner={false}>
       <SectionHeader
         label="Contatti"
         title="Iniziamo il tuo percorso"

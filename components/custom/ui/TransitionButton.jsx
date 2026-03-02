@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { Button } from "../ui/button";
+import { Button } from "@/components/ui/button";
 import { usePageTransition } from "@/context/TransitionContext";
 
 export default function TransitionButton({

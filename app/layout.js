@@ -1,6 +1,6 @@
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-import Providers from "@/components/custom/Providers";
+import Providers from "@/components/custom/layout/Providers";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -13,8 +13,19 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata = {
-  title: "Giacomo Ghione",
-  description: "Giacomo Ghione, nutrizionista e personal trainer",
+  title: "Giacomo Ghione | Nutrizionista e Personal Trainer",
+  description: "Giacomo Ghione, nutrizionista e personal trainer. Piani alimentari e schede di allenamento personalizzate ad Asti e online.",
+  keywords: [
+    "nutrizionista",
+    "personal trainer",
+    "dieta",
+    "allenamento",
+    "Giacomo Ghione",
+    "nutrizionista sportivo",
+    "preparazione atletica",
+    "Asti",
+    "Castagnole delle Lanze",
+  ],
 };
 
 export default function RootLayout({ children }) {

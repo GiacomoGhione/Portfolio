@@ -1,7 +1,7 @@
-import PageShell from "@/components/custom/PageShell";
-import SectionHeader from "@/components/custom/SectionHeader";
-import { Check, Star } from "lucide-react";
-import TransitionButton from "@/components/custom/TransitionButton";
+import PageShell from "@/components/custom/layout/PageShell";
+import SectionHeader from "@/components/custom/ui/SectionHeader";
+import { Check, Star, ArrowRight } from "lucide-react";
+import TransitionButton from "@/components/custom/ui/TransitionButton";
 
 const plans = [
   {
@@ -44,7 +44,7 @@ const plans = [
       "Valutazione dei progressi",
       "Monitoraggio della composizione corporea",
       "Analisi delle difficoltà incontrate",
-      " Adattamento del piano alimentare",
+      "Adattamento del piano alimentare",
       "Consigli per migliorare i risultati",
     ],
     featured: false,
@@ -92,7 +92,7 @@ export default function Servizi() {
             {/* Price */}
             <div className="mb-8">
               <div className="flex items-baseline gap-1">
-                <span className="font-serif text-4xl lg:text-5xl font-medium">
+                <span className="font-sans text-4xl lg:text-5xl font-medium">
                   {plan.price}
                 </span>
                 <span
@@ -132,15 +132,27 @@ export default function Servizi() {
 
             {/* CTA */}
             <TransitionButton
-              href="contatti"
-              size="lg"
-              className={`rounded-full w-full ${
+              className={` w-full text-background font-medium tracking-wide rounded-full pr-0 ${
                 plan.featured
                   ? "bg-background text-foreground hover:bg-background/90"
                   : "bg-foreground text-background hover:bg-foreground/90"
               }`}
+              href="/contatti"
+              size="lg"
             >
-              Inizia ora
+              <span className="flex-1 -mr-8 lg:mr-0 text-center">
+                Inizia ora
+              </span>
+              <span
+                className={`flex items-center justify-center w-10 h-10 rounded-full transition-colors shrink-0
+                  ${
+                    plan.featured
+                      ? "bg-foreground/50 text-background"
+                      : "bg-primary-foreground/25 group-hover:bg-primary-foreground/30"
+                  }`}
+              >
+                <ArrowRight className="w-6 h-6 " strokeWidth={2} />
+              </span>
             </TransitionButton>
           </div>
         ))}
@@ -158,7 +170,7 @@ export default function Servizi() {
           description="Per quanto riguarda i servizi di allenamento, preferisco offrire un
           supporto più personalizzato e diretto. Contattami per discutere delle
           tue esigenze specifiche e creare insieme un programma di allenamento
-          su misura per te, oppure vieni a trovarmi in studio.."
+          su misura per te, oppure vieni a trovarmi in studio."
           className="max-w-2xl mb-0 text-background"
         />
         <TransitionButton

@@ -11,11 +11,11 @@ export default function SectionHeader({
           {label}
         </span>
       )}
-      <h2 className="font-serif text-2xl sm:text-3xl lg:text-4xl mb-4 text-balance">
+      <h2 className="font-sans text-2xl sm:text-3xl lg:text-4xl mb-4 text-balance">
         {title}
       </h2>
       {description && (
-        <p className="font-serif text-lg lg:text-xl leading-relaxed">
+        <p className="font-sans text-lg lg:text-xl leading-relaxed">
           {description}
         </p>
       )}

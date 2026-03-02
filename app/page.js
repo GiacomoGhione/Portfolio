@@ -1,49 +1,49 @@
-import PageShell from "@/components/custom/PageShell";
-import SectionHeader from "@/components/custom/SectionHeader";
-import FeatureCard from "@/components/custom/FeatureCard";
-import TransitionButton from "@/components/custom/TransitionButton";
-import { Button } from "@/components/ui/button";
+import PageShell from "@/components/custom/layout/PageShell";
+import SectionHeader from "@/components/custom/ui/SectionHeader";
+import FeatureCard from "@/components/custom/ui/FeatureCard";
+import TransitionButton from "@/components/custom/ui/TransitionButton";
 import {
-  MoveRight,
   Apple,
   Brain,
   Dumbbell,
+  BookOpen,
   LineChart,
   Target,
   TrendingUp,
   ClipboardList,
   Utensils,
   HeartPulse,
+  ArrowRight,
 } from "lucide-react";
 import Image from "next/image";
 
 export default function Home() {
   return (
-    <PageShell>
-      <div className="grid gap-4 lg:grid-cols-2 items-center h-svh">
+    <PageShell className="lg:py-0!">
+      <div className="grid gap-12 lg:gap-4 lg:grid-cols-2 lg:items-center min-h-svh lg:h-svh">
         {/* Left: Text content */}
-        <div className="flex flex-col gap-4 relative">
+        <div className="flex flex-col gap-6 lg:gap-4 relative">
           {/* Ambient glow */}
-          <div className="pointer-events-none absolute -left-10 lg:-left-20 top-1/4 -translate-y-1/2 -translate-x-1/4 w-screen h-100 lg:h-200 bg-[radial-gradient(ellipse_at_center,rgba(220,240,75,0.2)_0%,transparent_65%)] blur-3xl z-30" />
+          <div className="pointer-events-none absolute -left-10 lg:-left-20 top-1/4 -translate-y-1/2 -translate-x-1/4 w-screen h-[150vh] bg-[radial-gradient(ellipse_at_center,rgba(220,240,75,0.15)_0%,transparent_50%)] blur-3xl z-30" />
           {/* Badge */}
           <div>
-            <span className="inline-flex items-center gap-4 rounded-full border border-foreground bg-card px-4 py-2 text-sm text-muted-foreground/80">
+            <span className="inline-flex items-center gap-4 rounded-full border border-muted-foreground bg-card px-4 py-2 text-sm text-muted-foreground">
               <span className="relative flex h-2 w-2">
-                <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-muted-foreground/75" />
-                <span className="relative inline-flex h-2 w-2 rounded-full bg-muted-foreground/75" />
+                <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-muted-foreground" />
+                <span className="relative inline-flex h-2 w-2 rounded-full bg-muted-foreground" />
               </span>
               Disponibile per nuovi clienti
             </span>
           </div>
 
           {/* Heading */}
-          <h1 className="font-serif text-4xl leading-tight tracking-tight text-balance sm:text-5xl lg:text-6xl xl:text-7xl text-muted-foreground z-40">
+          <h1 className="font-sans text-4xl leading-tight tracking-tight text-balance sm:text-5xl lg:text-6xl xl:text-7xl text-muted-foreground z-40">
             Trasforma il tuo corpo,{" "}
             <span className="text-foreground">riscopri te stesso</span>
           </h1>
 
           {/* Description */}
-          <p className="font-serif lg:max-w-xl xl:max-w-2xl text-xl leading-relaxed tracking-wider text-balance text-muted-foreground z-40">
+          <p className="font-sans lg:max-w-xl xl:max-w-2xl text-xl leading-relaxed tracking-wider text-balance text-muted-foreground z-40">
             Sono un nutrizionista e personal trainer, insieme raggiungeremo
             risultati concreti e duraturi nel tempo.
           </p>
@@ -59,20 +59,24 @@ export default function Home() {
                 Inizia il tuo percorso
               </span>
               <span className="flex items-center justify-center w-10 h-10 rounded-full bg-primary-foreground/25 group-hover:bg-primary-foreground/30 transition-colors shrink-0">
-                <MoveRight
+                <ArrowRight
                   className="w-6 h-6 text-primary-foreground"
                   strokeWidth={2}
                 />
               </span>
             </TransitionButton>
-
             <TransitionButton
-              className="bg-transparent text-foreground hover:text-muted-foreground/75 hover:bg-foreground/25 border border-foreground font-medium tracking-wide rounded-full"
-              href="/contatti"
+              className="bg-transparent text-foreground hover:text-muted-foreground/75 hover:bg-foreground/25 border border-foreground font-medium tracking-wide rounded-full pr-0"
+              href="/metodo"
               variant="outline"
               size="lg"
             >
-              Scopri il metodo
+              <span className="flex-1 -mr-8 lg:mr-2 text-center">
+                Scopri il metodo
+              </span>
+              <span className="flex items-center justify-center w-10 h-10 rounded-full bg-foreground/50 text-background transition-colors shrink-0">
+                <BookOpen className="w-6 h-6 mt-0.5" strokeWidth={2} />
+              </span>
             </TransitionButton>
           </div>
         </div>
@@ -167,11 +171,19 @@ export default function Home() {
         </div>
         <div className="flex justify-center pt-8">
           <TransitionButton
-            className="bg-foreground hover:bg-foreground/90 text-background font-medium tracking-wide rounded-full"
+            className="bg-foreground hover:bg-foreground/90 text-background font-medium tracking-wide rounded-full pr-0"
             href="/servizi"
             size="lg"
           >
-            Scopri tutti i servizi
+            <span className="flex-1 mr-2 text-center">
+              Scopri tutti i servizi
+            </span>
+            <span className="flex items-center justify-center w-10 h-10 rounded-full bg-primary-foreground/25 group-hover:bg-primary-foreground/30 transition-colors shrink-0">
+              <ArrowRight
+                className="w-6 h-6 text-primary-foreground"
+                strokeWidth={2}
+              />
+            </span>
           </TransitionButton>
         </div>
       </div>
@@ -180,9 +192,8 @@ export default function Home() {
       <div className="relative rounded-3xl bg-foreground text-background p-8 lg:p-16 text-center flex flex-col items-center gap-6">
         <div className="pointer-events-none absolute inset-0 rounded-3xl bg-[radial-gradient(ellipse_at_center,rgba(220,240,75,0.15)_0%,transparent_70%)]" />
         <SectionHeader
-          label="Chi Sono"
           title="Competenza costruita nel tempo"
-          description="Anni di studio, pratica e aggiornamento continuo per offrirti il meglio della scienza della nutrizione e dell'allenamento. Il mio studio è un ambiente professionale e accogliente, pensato per mettere a proprio agio ogni persona."
+          description="Anni di studio, pratica e aggiornamento continuo per offrirti il meglio della scienza della nutrizione e dell'allenamento."
           className="max-w-2xl mb-0 text-background"
         />
         <TransitionButton
@@ -201,7 +212,7 @@ export default function Home() {
           title="Un percorso costruito attorno a te"
           description="Non esistono soluzioni universali. Il mio approccio si basa sulla personalizzazione totale, perché ogni persona è unica."
         />
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid lg:grid-cols-3 gap-6">
           {[
             {
               icon: Brain,
@@ -250,12 +261,19 @@ export default function Home() {
         </div>
         <div className="flex justify-center pt-8">
           <TransitionButton
-            className="bg-foreground hover:bg-foreground/90 text-background font-medium tracking-wide rounded-full"
+            className="bg-foreground hover:bg-foreground/90 text-background font-medium tracking-wide rounded-full pr-0"
             href="/metodo"
-            variant="outline"
             size="lg"
           >
-            Scopri il metodo completo
+            <span className="flex-1 mr-2 text-center">
+              Scopri il metodo completo
+            </span>
+            <span className="flex items-center justify-center w-10 h-10 rounded-full bg-primary-foreground/25 group-hover:bg-primary-foreground/30 transition-colors shrink-0">
+              <ArrowRight
+                className="w-6 h-6 text-primary-foreground"
+                strokeWidth={2}
+              />
+            </span>
           </TransitionButton>
         </div>
       </div>

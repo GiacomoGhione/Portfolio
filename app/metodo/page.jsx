@@ -1,4 +1,4 @@
-import PageShell from "@/components/custom/PageShell";
+import PageShell from "@/components/custom/layout/PageShell";
 import {
   Apple,
   Bike,
@@ -12,9 +12,11 @@ import {
   Target,
   TrendingUp,
   Volleyball,
+  ArrowRight,
 } from "lucide-react";
-import SectionHeader from "@/components/custom/SectionHeader";
-import FeatureCard from "@/components/custom/FeatureCard";
+import SectionHeader from "@/components/custom/ui/SectionHeader";
+import FeatureCard from "@/components/custom/ui/FeatureCard";
+import { Button } from "@/components/ui/button";
 
 const methodSteps = [
   {
@@ -95,14 +97,14 @@ const bentoItems = [
     icon: Dumbbell,
     title: "Sinergia tra sport e nutrizione",
     description:
-      "Strategie personalizzate ottimizzare l’energia e favorire l’adattamento.",
+      "Strategie personalizzate per ottimizzare l’energia e favorire l’adattamento.",
     className: "lg:col-span-1",
   },
   {
     icon: Bike,
     title: "Nutrizione sportiva per atleti endurance",
     description:
-      "Srategie nutrizionali e di integrazione specifiche per atleti di ciclismo, running e trail running.",
+      "Strategie nutrizionali e di integrazione specifiche per atleti di ciclismo, running e trail running.",
     className: "lg:col-span-2",
   },
 ];

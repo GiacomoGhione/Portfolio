@@ -3,7 +3,7 @@
 import { useRef } from "react";
 import { motion, useScroll, useSpring } from "framer-motion";
 import { GraduationCap, BookOpen, Medal, Award } from "lucide-react";
-import FeatureCard from "@/components/custom/FeatureCard";
+import FeatureCard from "@/components/custom/ui/FeatureCard";
 
 const credentials = [
   {

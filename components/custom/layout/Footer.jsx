@@ -1,6 +1,6 @@
 import { Instagram, Linkedin, Mail, Phone, Clock, MapPin } from "lucide-react";
 
-import TransitionLink from "./TransitionLink";
+import TransitionLink from "../ui/TransitionLink";
 
 const socialLinks = [
   {
@@ -42,16 +42,13 @@ export default function Footer() {
   return (
     <footer className="bg-foreground text-background py-12 -mt-5">
       <div className="container mx-auto px-4">
+        <TransitionLink href="/" className="text-3xl font-bold tracking-wide">
+          Giacomo Ghione
+        </TransitionLink>
         {/* Top row */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 mt-4">
           {/* First col */}
           <div className="flex flex-col gap-4">
-            <TransitionLink
-              href="/"
-              className="text-3xl font-bold tracking-wide"
-            >
-              Giacomo Ghione
-            </TransitionLink>
             <p className="text-md leading-relaxed">
               Il tuo nutrizionista e Personal Trainer. Aiuto le persone a
               raggiungere i loro obiettivi di salute e benessere attraverso
@@ -77,7 +74,7 @@ export default function Footer() {
           <div className="flex flex-col gap-12 lg:flex-row lg:gap-8 xl:gap-32 2xl:gap-40 justify-end">
             {/* Second col */}
             <div>
-              <h1 className="text-xs font-medium uppercase tracking-widest mb-4">
+              <h1 className="text-md leading-relaxed font-medium uppercase mb-4">
                 Informazioni
               </h1>
               <ul className="flex flex-col gap-3 text-sm">
@@ -107,7 +104,7 @@ export default function Footer() {
             </div>
             {/* Third col */}
             <div>
-              <h1 className="text-xs font-medium uppercase tracking-widest mb-4">
+              <h1 className="text-md leading-relaxed font-medium uppercase mb-4">
                 Contatti
               </h1>
               <ul className="flex flex-col gap-3 text-sm">

@@ -4,8 +4,8 @@ import { useState, useEffect } from "react";
 import { usePathname } from "next/navigation";
 import { AnimatePresence, motion, number } from "framer-motion";
 
-import TransitionLink from "./TransitionLink";
-import TransitionButton from "./TransitionButton";
+import TransitionLink from "../ui/TransitionLink";
+import TransitionButton from "../ui/TransitionButton";
 
 const navLinks = [
   { href: "/", label: "Home" },
@@ -40,7 +40,7 @@ export default function Navbar() {
       document.documentElement.style.scrollbarGutter = "";
     }
 
-    window.addEventListener("scroll", handleScroll);
+    window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
   }, [isMobileMenuOpen]);
 
@@ -63,13 +63,19 @@ export default function Navbar() {
           >
             <div
               className={`flex items-center  rounded-full py-1 font-semibold transition-all duration-500
-                ${isScrolled ? "bg-foreground w-16 text-background px-4" : "w-38 bg-trasparent px-0"}
+                ${isScrolled ? "bg-muted-foreground w-16 text-background px-4" : "w-38 bg-trasparent px-0"}
                 ${isMobileMenuOpen ? "text-background w-38 bg-transparent px-0!" : ""}`}
             >
               <span className="flex items-center">
-                <span>G</span>
                 <span
-                  className={`overflow-hidden text-foreground transition-all duration-500
+                  className={`text-muted-foreground transition-all duration-500
+                    ${isScrolled ? "text-background!" : ""} 
+                    ${isMobileMenuOpen ? "text-background!" : ""}`}
+                >
+                  G
+                </span>
+                <span
+                  className={`overflow-hidden text-muted-foreground transition-all duration-500
                     ${isScrolled ? "w-1 opacity-0" : "w-17 opacity-100"} 
                     ${isMobileMenuOpen ? "text-background! w-17 opacity-100" : ""}`}
                 >
@@ -77,9 +83,15 @@ export default function Navbar() {
                 </span>
               </span>
               <span className="flex items-center">
-                <span>G</span>
                 <span
-                  className={`overflow-hidden text-foreground transition-all duration-500
+                  className={`text-muted-foreground transition-all duration-500
+                    ${isScrolled ? "text-background!" : ""} 
+                    ${isMobileMenuOpen ? "text-background!" : ""}`}
+                >
+                  G
+                </span>
+                <span
+                  className={`overflow-hidden text-muted-foreground transition-all duration-500
                     ${isScrolled ? "w-0 opacity-0" : "w-13 opacity-100"} 
                     ${isMobileMenuOpen ? "text-background! w-13 opacity-100" : ""}`}
                 >
@@ -90,13 +102,15 @@ export default function Navbar() {
           </TransitionLink>
           {/* Desktop menu */}
           <ul
-            className={`hidden lg:flex h-9 items-center text-foreground text-sm font-medium tracking-wide z-50 rounded-full transition-all duration-500 ${isScrolled ? "bg-card gap-2" : "gap-4"}`}
+            className={`hidden lg:flex h-9 items-center text-muted-foreground text-sm font-medium tracking-wide z-50 rounded-full transition-all duration-500 ${isScrolled ? "bg-card gap-2" : "gap-4"}`}
           >
             {navLinks.map((link) => (
               <li
                 key={link.href}
                 className={`h-full flex items-center justify-center px-4 rounded-full transition-all duration-500 ${
-                  pathname === link.href ? "bg-foreground text-background" : ""
+                  pathname === link.href
+                    ? "bg-muted-foreground text-background"
+                    : ""
                 }`}
               >
                 <TransitionLink href={link.href}>{link.label}</TransitionLink>
@@ -106,7 +120,7 @@ export default function Navbar() {
 
           {/* CTA Button - Desktop */}
           <TransitionButton
-            className="w-42 rounded-full hidden lg:inline-flex bg-foreground hover:bg-foreground/90 text-background font-medium tracking-wide"
+            className="w-42 rounded-full hidden lg:inline-flex bg-muted-foreground hover:bg-muted-foreground/90 text-background font-medium tracking-wide"
             href="/contatti"
           >
             Prenota consulenza
@@ -116,7 +130,7 @@ export default function Navbar() {
           <motion.button
             type="button"
             className={`flex h-10 w-10 items-center justify-center rounded-full lg:hidden transition-colors duration-500 z-50
-                ${isMobileMenuOpen ? "bg-background" : "bg-foreground text-background"}`}
+                ${isMobileMenuOpen ? "bg-background" : "bg-muted-foreground text-background"}`}
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             whileTap={{ scale: 0.95 }}
           >
@@ -189,7 +203,11 @@ export default function Navbar() {
                       initial={{ x: -50, opacity: 0 }}
                       animate={{ x: 0, opacity: 1 }}
                       transition={{ duration: 0.4, delay: 0.1 + index * 0.1 }}
-                      className="py-3 text-4xl text-background/90 border-b border-background/15 hover:text-background hover:border-background/60 transition-colors duration-500"
+                      className={`py-3 text-4xl border-b transition-colors duration-500 ${
+                        pathname === link.href
+                          ? "text-background font-medium border-background/60"
+                          : "text-background/90 border-background/15 hover:text-background hover:border-background/60"
+                      }`}
                     >
                       <TransitionLink
                         href={link.href}

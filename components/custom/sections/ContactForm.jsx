@@ -1,6 +1,6 @@
 "use client";
 import { useState } from "react";
-import { Send, User, Mail, Phone } from "lucide-react";
+import { Send } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
@@ -49,7 +49,7 @@ export default function ContactForm() {
           >
             <Send className="h-8 w-8 text-accent" strokeWidth={1.5} />
           </motion.div>
-          <h3 className="font-serif text-2xl mb-2">Messaggio inviato!</h3>
+          <h3 className="font-sans text-2xl mb-2">Messaggio inviato!</h3>
           <p className="text-muted-foreground">
             Ti risponderò il prima possibile. Grazie!
           </p>

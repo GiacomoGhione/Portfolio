@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ChevronUp } from "lucide-react";
 
-export function BackToTop() {
+export default function BackToTop() {
   const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
@@ -24,7 +24,7 @@ export function BackToTop() {
               type="button"
               aria-label="Torna all'inizio"
               onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-              className="ml-auto pointer-events-auto flex h-10 w-10 items-center justify-center rounded-full bg-foreground text-background hover:bg-background hover:text-foreground transition-colors duration-500"
+              className="ml-auto pointer-events-auto flex h-10 w-10 items-center justify-center rounded-full bg-muted-foreground text-background hover:bg-background hover:text-foreground transition-colors duration-500"
               initial={{ opacity: 0, scale: 0.8 }}
               animate={{ opacity: 1, scale: 1 }}
               exit={{ opacity: 0, scale: 0.8 }}

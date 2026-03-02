@@ -13,7 +13,7 @@ import { useRouter, usePathname } from "next/navigation";
 
 const TransitionContext = createContext({});
 
-export function TransitionProvider({ children }) {
+export default function TransitionProvider({ children }) {
   const router = useRouter();
   const pathname = usePathname();
   const [phase, setPhase] = useState("idle"); // idle | covering | revealing
