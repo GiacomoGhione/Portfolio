@@ -70,8 +70,8 @@ export default function Navbar() {
                 <span>G</span>
                 <span
                   className={`overflow-hidden text-foreground transition-all duration-500
-                    ${isScrolled ? "w-1 opacity-0" : "w-16.5 opacity-100"} 
-                    ${isMobileMenuOpen ? "text-background! w-16.5 opacity-100" : ""}`}
+                    ${isScrolled ? "w-1 opacity-0" : "w-17 opacity-100"} 
+                    ${isMobileMenuOpen ? "text-background! w-17 opacity-100" : ""}`}
                 >
                   iacomo
                 </span>
@@ -80,8 +80,8 @@ export default function Navbar() {
                 <span>G</span>
                 <span
                   className={`overflow-hidden text-foreground transition-all duration-500
-                    ${isScrolled ? "w-0 opacity-0" : "w-12.5 opacity-100"} 
-                    ${isMobileMenuOpen ? "text-background! w-12.5 opacity-100" : ""}`}
+                    ${isScrolled ? "w-0 opacity-0" : "w-13 opacity-100"} 
+                    ${isMobileMenuOpen ? "text-background! w-13 opacity-100" : ""}`}
                 >
                   hione
                 </span>
