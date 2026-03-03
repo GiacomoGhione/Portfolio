@@ -49,7 +49,7 @@ export default function IntroScreen() {
         <h1 className="text-primary-foreground text-4xl md:text-6xl font-bold tracking-[0.15em] uppercase text-center select-none mb-4">
           Giacomo Ghione
         </h1>
-        <p className="text-primary-foreground/60 text-sm md:text-sm tracking-[0.45em] uppercase select-none">
+        <p className="text-primary-foreground/60 text-md tracking-[0.45em] uppercase select-none">
           Nutrizione e Allenamento
         </p>
       </motion.div>

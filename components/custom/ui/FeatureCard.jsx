@@ -13,11 +13,12 @@ export default function FeatureCard({
         className={`lg:w-1/2 ${iconPosition === "right" ? "lg:pr-12" : "lg:pl-12"}`}
       >
         <div
-          className={`rounded-2xl bg-card p-5 transition-all duration-500 hover:shadow-lg ${iconPosition === "right" ? "lg:text-right" : "lg:text-left"}`}
+          className={`rounded-2xl bg-card p-6 transition-all duration-500 hover:shadow-lg ${iconPosition === "right" ? "lg:text-right" : "lg:text-left"}`}
         >
           <div
-            className={`flex items-center gap-3 mb-3 ${iconPosition === "right" ? "lg:flex-row-reverse" : ""
-              }`}
+            className={`flex items-center gap-3 mb-3 ${
+              iconPosition === "right" ? "lg:flex-row-reverse" : ""
+            }`}
           >
             <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-muted text-muted-foreground">
               <Icon className="h-5 w-5" strokeWidth={1.5} />
@@ -38,7 +39,7 @@ export default function FeatureCard({
   if (variant === "bento") {
     return (
       <div
-        className={`group flex items-start flex-col rounded-2xl bg-card p-8 transition-all duration-300 hover:border-foreground/20 hover:shadow-lg ${className}`}
+        className={`group rounded-2xl bg-card p-6 transition-all duration-500 hover:border-foreground/20 hover:shadow-lg overflow-hidden ${className}`}
       >
         <div className="flex h-12 w-12 shrink-0 mb-4 items-center justify-center rounded-xl bg-muted text-muted-foreground transition-colors group-hover:bg-foreground group-hover:text-background">
           <Icon className="h-6 w-6" strokeWidth={1.5} />
@@ -57,7 +58,7 @@ export default function FeatureCard({
 
   return (
     <div
-      className={`group rounded-2xl bg-card p-6 transition-all duration-300 hover:border-foreground/20 hover:shadow-lg ${className}`}
+      className={`group rounded-2xl bg-card p-6 transition-all duration-500 hover:border-foreground/20 hover:shadow-lg ${className}`}
     >
       <div className="flex items-center gap-8 min-w-0">
         <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-muted text-muted-foreground transition-colors group-hover:bg-foreground group-hover:text-background">

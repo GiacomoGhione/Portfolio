@@ -14,7 +14,7 @@ const phrases = [
 
 export default function LogosBanner() {
   return (
-    <section className="relative container mx-auto px-4 lg:pb-4">
+    <section className="relative w-full overflow-hidden mb-18">
       {/* Fade edges */}
       <div className="pointer-events-none absolute inset-y-0 left-0 z-10 w-24 bg-linear-to-r from-background to-transparent" />
       <div className="pointer-events-none absolute inset-y-0 right-0 z-10 w-24 bg-linear-to-l from-background to-transparent" />
@@ -33,7 +33,7 @@ export default function LogosBanner() {
             {[0, 1].map((i) => (
               <span
                 key={i}
-                className="shrink-0 font-sans leading-tight tracking-tight text-5xl lg:text-6xl xl:text-7xl text-foreground whitespace-nowrap"
+                className="shrink-0 font-medium font-sans leading-tight tracking-tight text-5xl lg:text-6xl xl:text-7xl text-foreground whitespace-nowrap"
               >
                 Prenota subito un appuntamento e trasforma il tuo corpo.
               </span>
