@@ -41,11 +41,11 @@ export default function ActivityCard({ activity, index }) {
 
       {/* Text */}
       <div className={index % 2 === 1 ? "lg:order-1" : ""}>
-        <h3 className="font-sans text-2xl lg:text-4xl mb-3 text-muted-foreground">
+        <h3 className="font-sans font-medium text-2xl lg:text-3xl mb-3 text-muted-foreground">
           {activity.title}
         </h3>
         <div className="w-18 h-px bg-muted-foreground/75 mb-4" />
-        <p className="text-muted-foreground leading-relaxed text-lg">
+        <p className="text-muted-foreground/70 leading-relaxed text-base lg:text-lg">
           {activity.description}
         </p>
       </div>

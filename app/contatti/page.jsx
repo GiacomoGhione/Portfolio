@@ -1,6 +1,7 @@
 import PageShell from "@/components/custom/layout/PageShell";
 import SectionHeader from "@/components/custom/ui/SectionHeader";
 import ContactForm from "@/components/custom/sections/ContactForm";
+import ContactInfoItem from "@/components/custom/ui/ContactInfoItem";
 import { CONTACT_ITEMS } from "@/lib/constants";
 
 export const metadata = {
@@ -21,23 +22,7 @@ export default function Contatti() {
         {/* Contact details */}
         <div className="flex flex-col gap-6">
           {CONTACT_ITEMS.map((item) => (
-            <a
-              key={item.label}
-              href={item.href}
-              className="flex items-center gap-4 text-muted-foreground hover:text-accent transition-colors group min-w-0"
-            >
-              <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-muted transition-colors group-hover:bg-foreground group-hover:text-background">
-                <item.icon className="h-5 w-5" strokeWidth={1.5} />
-              </div>
-              <div className="min-w-0">
-                <span className="text-xs text-muted-foreground block uppercase tracking-wider truncate">
-                  {item.label}
-                </span>
-                <span className="text-base font-medium text-muted-foreground truncate block">
-                  {item.value}
-                </span>
-              </div>
-            </a>
+            <ContactInfoItem key={item.label} {...item} />
           ))}
         </div>
         <ContactForm />

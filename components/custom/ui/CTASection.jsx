@@ -12,7 +12,7 @@ export default function CTASection({
 }) {
   return (
     <div className="relative rounded-3xl bg-foreground text-background p-8 lg:p-16 text-center flex flex-col items-center gap-6">
-      <div className="pointer-events-none absolute inset-0 rounded-3xl bg-[radial-gradient(ellipse_at_center,rgba(220,240,75,0.15)_0%,transparent_70%)]" />
+      <div className="pointer-events-none absolute inset-0 rounded-3xl bg-[radial-gradient(ellipse_at_center,rgba(220,240,75,0.15)_0%,transparent_75%)]" />
       <SectionHeader
         title={title}
         description={description}

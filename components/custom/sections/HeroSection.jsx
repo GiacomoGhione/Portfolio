@@ -28,13 +28,13 @@ export default function HeroSection() {
         </h1>
 
         {/* Description */}
-        <p className="font-sans text-lg leading-relaxed text-balance tracking-wide font-medium text-muted-foreground z-40">
+        <p className="font-sans text-lg leading-relaxed text-balance tracking-wide text-muted-foreground z-40 -mt-2 lg:mt-0">
           Sono un nutrizionista e personal trainer, insieme raggiungeremo
           risultati concreti e duraturi nel tempo.
         </p>
 
         {/* CTA Buttons */}
-        <div className="flex flex-col lg:flex-row flex-wrap gap-4 z-40 mt-2">
+        <div className="flex flex-col lg:flex-row flex-wrap gap-4 z-40 lg:mt-2">
           <CTAButton
             label="Inizia il tuo percorso"
             href="/contatti"

@@ -1,7 +1,6 @@
 import PageShell from "@/components/custom/layout/PageShell";
 import SectionHeader from "@/components/custom/ui/SectionHeader";
-import { Check, Star } from "lucide-react";
-import CTAButton from "@/components/custom/ui/CTAButton";
+import PricingCard from "@/components/custom/ui/PricingCard";
 import CTASection from "@/components/custom/ui/CTASection";
 
 export const metadata = {
@@ -42,7 +41,7 @@ const plans = [
     featured: true,
   },
   {
-    name: "Visita di Controllo",
+    name: "Visita di Controllo e Aggiornamento Piano",
     price: "45€",
     period: "ogni consegna",
     description:
@@ -67,84 +66,8 @@ export default function Servizi() {
         description="Scegli l'opzione più adatta a te e inizia il tuo percorso nutrizionale con un supporto completo e personalizzato."
       />
       <div className="grid gap-6 lg:grid-cols-3">
-        {plans.map((plan, index) => (
-          <div
-            key={plan.name}
-            className={`relative flex flex-col rounded-2xl border p-8 transition-shadow hover:shadow-xl ${
-              plan.featured
-                ? "border-foreground bg-foreground text-background"
-                : "border bg-card"
-            }`}
-          >
-            {/* Popular badge */}
-            {plan.featured && (
-              <div className="absolute -top-3 left-8 flex items-center gap-2 rounded-full bg-accent px-4 py-1 text-muted-foreground">
-                <Star className="h-3.5 w-3.5 fill-current" />
-                <span className="text-xs font-medium">Consigliato</span>
-              </div>
-            )}
-
-            {/* Plan header */}
-            <div className="mb-6">
-              <h3 className="font-medium text-lg mb-2">{plan.name}</h3>
-              <p
-                className={`text-sm leading-relaxed ${
-                  plan.featured ? "text-background" : "text-muted-foreground"
-                }`}
-              >
-                {plan.description}
-              </p>
-            </div>
-
-            {/* Price */}
-            <div className="mb-8">
-              <div className="flex items-baseline gap-1">
-                <span className="font-sans text-4xl lg:text-5xl font-medium">
-                  {plan.price}
-                </span>
-                <span
-                  className={`text-sm ${
-                    plan.featured
-                      ? "text-background/60"
-                      : "text-muted-foreground"
-                  }`}
-                >
-                  {"€"} / {plan.period}
-                </span>
-              </div>
-            </div>
-
-            {/* Features */}
-            <ul className="flex flex-col gap-3 mb-8 flex-1">
-              {plan.features.map((feature) => (
-                <li key={feature} className="flex items-start gap-3">
-                  <Check
-                    className={`h-4 w-4 mt-0.5 shrink-0 ${
-                      plan.featured ? "text-accent" : "text-accent"
-                    }`}
-                    strokeWidth={2}
-                  />
-                  <span
-                    className={`text-sm ${
-                      plan.featured
-                        ? "text-background/80"
-                        : "text-muted-foreground"
-                    }`}
-                  >
-                    {feature}
-                  </span>
-                </li>
-              ))}
-            </ul>
-
-            {/* CTA */}
-            <CTAButton
-              label="Inizia ora"
-              href="/contatti"
-              variant={plan.featured ? "inverted" : "primary"}
-              classNameLabel="-mr-6!"
-            />
-          </div>
+        {plans.map((plan) => (
+          <PricingCard key={plan.name} plan={plan} />
         ))}
       </div>
 

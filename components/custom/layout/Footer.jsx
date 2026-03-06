@@ -1,20 +1,33 @@
-import { Instagram, Linkedin, Mail, Phone, Clock, MapPin } from "lucide-react";
+import { Mail, Phone, MapPin } from "lucide-react";
 
 import TransitionLink from "../ui/TransitionLink";
 import { CONTACT, SOCIAL_LINKS } from "@/lib/constants";
 
-const infoLinks = [
-  { label: "Email", value: CONTACT.email, icon: Mail },
-  { label: "Telefono", value: CONTACT.phone, icon: Phone },
+/** Items shown in the "Informazioni" column */
+const legalInfo = [
   { label: "Albo", value: CONTACT.albo },
   { label: "P.IVA", value: CONTACT.piva },
   { label: "Ateco", value: CONTACT.ateco },
   { label: "Polizza", value: CONTACT.polizza },
+];
+
+/** Items shown in the "Contatti" column */
+const contactLinks = [
   {
-    label: "Posizione",
-    value: CONTACT.mapsUrl,
-    address: CONTACT.address,
+    icon: Mail,
+    label: CONTACT.email,
+    href: `mailto:${CONTACT.email}`,
+  },
+  {
+    icon: Phone,
+    label: CONTACT.phone,
+    href: `tel:${CONTACT.phone.replace(/\s/g, "")}`,
+  },
+  {
     icon: MapPin,
+    label: CONTACT.address,
+    href: CONTACT.mapsUrl,
+    external: true,
   },
 ];
 
@@ -63,80 +76,42 @@ export default function Footer() {
           </div>
 
           <div className="flex flex-col gap-12 xl:flex-row xl:gap-32 2xl:gap-40 justify-end">
-            {/* Second col */}
+            {/* Informazioni */}
             <div>
-              <h1 className="font-medium uppercase mb-3">Informazioni</h1>
+              <h3 className="font-medium uppercase mb-3 text-sm tracking-wider">
+                Informazioni
+              </h3>
               <ul className="flex flex-col gap-3 text-sm">
-                {infoLinks.map(({ label, value }) => {
-                  const isIva = label === "P.IVA";
-                  const isAlbo = label === "Albo";
-                  const isAteco = label === "Ateco";
-                  const isPolizza = label === "Polizza";
-
-                  const content = (
-                    <div className="flex items-center gap-1 text-sm text-background/75 hover:text-background transition-colors duration-500">
-                      {label && (
-                        <>
-                          <span>{label}</span>
-                          <span className="">-</span>
-                        </>
-                      )}
-                      <span>{value}</span>
-                    </div>
-                  );
-
-                  if (isIva || isAlbo || isAteco || isPolizza) {
-                    return <li key={label}>{content}</li>;
-                  }
-                })}
+                {legalInfo.map(({ label, value }) => (
+                  <li key={label}>
+                    <span className="text-background/75">
+                      {label} - {value}
+                    </span>
+                  </li>
+                ))}
               </ul>
             </div>
-            {/* Third col */}
+
+            {/* Contatti */}
             <div>
-              <h1 className="font-medium uppercase mb-3">Contatti</h1>
+              <h3 className="font-medium uppercase mb-3 text-sm tracking-wider">
+                Contatti
+              </h3>
               <ul className="flex flex-col gap-3 text-sm">
-                {infoLinks.map(({ label, value, icon: Icon, address }) => {
-                  const isEmail = label === "Email";
-                  const isPhone = label === "Telefono";
-                  const isPosition = label === "Posizione";
-
-                  const content = (
-                    <div className="flex items-center gap-2 text-sm text-background/75 hover:text-background transition-colors duration-500">
-                      {Icon && <Icon className="h-4 w-4" strokeWidth={1.5} />}
-                      <span>{label === "Posizione" ? address : value}</span>
-                    </div>
-                  );
-
-                  if (isEmail) {
-                    return (
-                      <li key={label}>
-                        <a href={`mailto:${value}`}>{content}</a>
-                      </li>
-                    );
-                  }
-                  if (isPhone) {
-                    return (
-                      <li key={label}>
-                        <a href={`tel:${value.replace(/\s/g, "")}`}>
-                          {content}
-                        </a>
-                      </li>
-                    );
-                  }
-                  if (isPosition) {
-                    return (
-                      <li key={label}>
-                        <a
-                          href={value}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                        >
-                          {content}
-                        </a>
-                      </li>
-                    );
-                  }
-                })}
+                {contactLinks.map(({ icon: Icon, label, href, external }) => (
+                  <li key={label}>
+                    <a
+                      href={href}
+                      {...(external
+                        ? { target: "_blank", rel: "noopener noreferrer" }
+                        : {})}
+                      className="flex items-center gap-2 text-background/75 hover:text-background transition-colors duration-500"
+                    >
+                      <Icon className="h-4 w-4" strokeWidth={1.5} />
+                      <span>{label}</span>
+                    </a>
+                  </li>
+                ))}
               </ul>
             </div>
           </div>

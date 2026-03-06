@@ -109,11 +109,19 @@ export default function Metodo() {
         {/* Left: Sticky Philosophy box */}
         <div className="lg:w-1/2">
           <div className="lg:sticky lg:top-28">
-            <SectionHeader
-              title="La trasformazione parte dalla mente"
-              description="Il vero cambiamento non è solo fisico. Ti guido in un percorso che trasforma il tuo rapporto con il cibo e con l'attività fisica, creando abitudini che durano una vita. Che tu voglia perdere peso, aumentare la massa muscolare o semplicemente sentirti meglio, costruiremo insieme un percorso sostenibile e personalizzato."
-              className="text-background bg-foreground rounded-3xl p-8 lg:p-12"
-            />
+            <div className="text-background bg-foreground rounded-3xl p-8 lg:p-12">
+              <h2 className="font-sans font-medium text-2xl lg:text-3xl mb-2 lg:mb-4 text-balance">
+                La trasformazione parte dalla mente
+              </h2>
+              <p className="font-sans text-md lg:text-lg leading-relaxed">
+                Il vero cambiamento non è solo fisico. Ti guido in un percorso
+                che trasforma il tuo rapporto con il cibo e con l'attività
+                fisica, creando abitudini che durano una vita. Che tu voglia
+                perdere peso, aumentare la massa muscolare o semplicemente
+                sentirti meglio, costruiremo insieme un percorso sostenibile e
+                personalizzato.
+              </p>
+            </div>
           </div>
         </div>
 
