@@ -1,16 +1,6 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Dumbbell, Heart, Leaf, Sparkles, Star, Zap } from "lucide-react";
-
-const phrases = [
-  { text: "Inizia ora il tuo cambiamento", icon: Sparkles },
-  { text: "Nutrizione personalizzata", icon: Leaf },
-  { text: "Allenamento su misura", icon: Dumbbell },
-  { text: "Trasforma il tuo corpo", icon: Zap },
-  { text: "Risultati concreti", icon: Star },
-  { text: "Benessere a 360 gradi", icon: Heart },
-];
 
 export default function LogosBanner() {
   return (
@@ -30,7 +20,7 @@ export default function LogosBanner() {
               ease: "linear",
             }}
           >
-            {[0, 1].map((i) => (
+            {[0, 1, 2].map((i) => (
               <span
                 key={i}
                 className="shrink-0 font-medium font-sans leading-tight tracking-tight text-5xl lg:text-6xl xl:text-7xl text-foreground whitespace-nowrap"

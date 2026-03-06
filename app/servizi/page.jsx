@@ -1,7 +1,14 @@
 import PageShell from "@/components/custom/layout/PageShell";
 import SectionHeader from "@/components/custom/ui/SectionHeader";
-import { Check, Star, ArrowRight } from "lucide-react";
-import TransitionButton from "@/components/custom/ui/TransitionButton";
+import { Check, Star } from "lucide-react";
+import CTAButton from "@/components/custom/ui/CTAButton";
+import CTASection from "@/components/custom/ui/CTASection";
+
+export const metadata = {
+  title: "Servizi | Giacomo Ghione",
+  description:
+    "Piani alimentari personalizzati e programmi di allenamento su misura. Scopri i servizi di Giacomo Ghione.",
+};
 
 const plans = [
   {
@@ -131,29 +138,12 @@ export default function Servizi() {
             </ul>
 
             {/* CTA */}
-            <TransitionButton
-              className={` w-full text-background font-medium tracking-wide rounded-full pr-0 ${
-                plan.featured
-                  ? "bg-background text-foreground hover:bg-background/90"
-                  : "bg-foreground text-background hover:bg-foreground/90"
-              }`}
+            <CTAButton
+              label="Inizia ora"
               href="/contatti"
-              size="lg"
-            >
-              <span className="flex-1 -mr-8 lg:mr-0 text-center">
-                Inizia ora
-              </span>
-              <span
-                className={`flex items-center justify-center w-10 h-10 rounded-full transition-colors shrink-0
-                  ${
-                    plan.featured
-                      ? "bg-foreground/50 text-background"
-                      : "bg-primary-foreground/25 group-hover:bg-primary-foreground/30"
-                  }`}
-              >
-                <ArrowRight className="w-6 h-6 " strokeWidth={2} />
-              </span>
-            </TransitionButton>
+              variant={plan.featured ? "inverted" : "primary"}
+              classNameLabel="-mr-6!"
+            />
           </div>
         ))}
       </div>
@@ -163,24 +153,12 @@ export default function Servizi() {
         title="Programmi di allenamento su misura"
         description="Scegli l'opzione più adatta a te e inizia il tuo percorso di allenamento con un supporto completo e personalizzato."
       />
-      <div className="relative rounded-3xl bg-foreground text-background p-8 lg:p-16 text-center flex flex-col items-center gap-6">
-        <div className="pointer-events-none absolute inset-0 rounded-3xl bg-[radial-gradient(ellipse_at_center,rgba(220,240,75,0.15)_0%,transparent_70%)]" />
-        <SectionHeader
-          title="Scrivimi o passa in palestra"
-          description="Per quanto riguarda i servizi di allenamento, preferisco offrire un
-          supporto più personalizzato e diretto. Contattami per discutere delle
-          tue esigenze specifiche e creare insieme un programma di allenamento
-          su misura per te, oppure vieni a trovarmi in studio."
-          className="max-w-2xl mb-0 text-background"
-        />
-        <TransitionButton
-          className="bg-background text-foreground hover:bg-background/90 font-medium tracking-wide rounded-full"
-          href="/contatti"
-          size="lg"
-        >
-          Scrivimi ora
-        </TransitionButton>
-      </div>
+      <CTASection
+        title="Scrivimi o passa in palestra"
+        description="Per quanto riguarda i servizi di allenamento, preferisco offrire un supporto più personalizzato e diretto. Contattami per discutere delle tue esigenze specifiche e creare insieme un programma di allenamento su misura per te, oppure vieni a trovarmi in studio."
+        buttonLabel="Scrivimi ora"
+        buttonHref="/contatti"
+      />
     </PageShell>
   );
 }

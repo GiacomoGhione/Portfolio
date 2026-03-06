@@ -2,8 +2,12 @@ import PageShell from "@/components/custom/layout/PageShell";
 import SectionHeader from "@/components/custom/ui/SectionHeader";
 import ActivityCard from "@/components/custom/sections/ActivityCard";
 import ExperienceTimeline from "@/components/custom/sections/ExperienceTimeline";
-import TransitionButton from "@/components/custom/ui/TransitionButton";
-import { ArrowRight } from "lucide-react";
+
+export const metadata = {
+  title: "Chi Sono | Giacomo Ghione",
+  description:
+    "Scopri il percorso formativo e professionale di Giacomo Ghione, nutrizionista e personal trainer ad Asti.",
+};
 
 const activities = [
   {

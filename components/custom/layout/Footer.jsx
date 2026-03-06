@@ -1,31 +1,19 @@
 import { Instagram, Linkedin, Mail, Phone, Clock, MapPin } from "lucide-react";
 
 import TransitionLink from "../ui/TransitionLink";
-
-const socialLinks = [
-  {
-    icon: Instagram,
-    href: "https://www.instagram.com/giacomo_ghione/",
-    label: "Instagram",
-  },
-  {
-    icon: Linkedin,
-    href: "https://www.linkedin.com/in/giacomo-ghione-25a091116/",
-    label: "LinkedIn",
-  },
-];
+import { CONTACT, SOCIAL_LINKS } from "@/lib/constants";
 
 const infoLinks = [
-  { label: "Email", value: "giacomo.ghione1702@gmail.com", icon: Mail },
-  { label: "Telefono", value: "+39 333 739 9940", icon: Phone },
-  { label: "Albo", value: "BIO. SEZ.A - PLV_A4432" },
-  { label: "P.IVA", value: "01773900053" },
-  { label: "Ateco", value: "72.10.10" },
-  { label: "Polizza", value: "RCM20100049052" },
+  { label: "Email", value: CONTACT.email, icon: Mail },
+  { label: "Telefono", value: CONTACT.phone, icon: Phone },
+  { label: "Albo", value: CONTACT.albo },
+  { label: "P.IVA", value: CONTACT.piva },
+  { label: "Ateco", value: CONTACT.ateco },
+  { label: "Polizza", value: CONTACT.polizza },
   {
     label: "Posizione",
-    value: "https://maps.app.goo.gl/DhAfZ3zvLBYBi6My8",
-    address: "I Santi, Castagnole Lanze (AT)",
+    value: CONTACT.mapsUrl,
+    address: CONTACT.address,
     icon: MapPin,
   },
 ];
@@ -42,13 +30,16 @@ export default function Footer() {
   return (
     <footer className="bg-foreground text-background py-12 -mt-5">
       <div className="container mx-auto px-4">
-        <TransitionLink href="/" className="text-3xl font-bold tracking-wide">
-          Giacomo Ghione
-        </TransitionLink>
         {/* Top row */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 mt-4">
+        <div className="grid grid-cols-1 xl:grid-cols-2 gap-12 mt-4">
           {/* First col */}
           <div className="flex flex-col gap-4">
+            <TransitionLink
+              href="/"
+              className="text-3xl font-bold tracking-wide"
+            >
+              Giacomo Ghione
+            </TransitionLink>
             <p className="text-md leading-relaxed">
               Il tuo nutrizionista e Personal Trainer. Aiuto le persone a
               raggiungere i loro obiettivi di salute e benessere attraverso
@@ -56,7 +47,7 @@ export default function Footer() {
               misura.
             </p>
             <div className="flex items-center gap-4">
-              {socialLinks.map(({ icon: Icon, href, label }) => (
+              {SOCIAL_LINKS.map(({ icon: Icon, href, label }) => (
                 <a
                   key={label}
                   href={href}
@@ -71,12 +62,10 @@ export default function Footer() {
             </div>
           </div>
 
-          <div className="flex flex-col gap-12 lg:flex-row lg:gap-8 xl:gap-32 2xl:gap-40 justify-end">
+          <div className="flex flex-col gap-12 xl:flex-row xl:gap-32 2xl:gap-40 justify-end">
             {/* Second col */}
             <div>
-              <h1 className="text-md leading-relaxed uppercase mb-3">
-                Informazioni
-              </h1>
+              <h1 className="font-medium uppercase mb-3">Informazioni</h1>
               <ul className="flex flex-col gap-3 text-sm">
                 {infoLinks.map(({ label, value }) => {
                   const isIva = label === "P.IVA";
@@ -104,9 +93,7 @@ export default function Footer() {
             </div>
             {/* Third col */}
             <div>
-              <h1 className="text-md leading-relaxed uppercase mb-3">
-                Contatti
-              </h1>
+              <h1 className="font-medium uppercase mb-3">Contatti</h1>
               <ul className="flex flex-col gap-3 text-sm">
                 {infoLinks.map(({ label, value, icon: Icon, address }) => {
                   const isEmail = label === "Email";

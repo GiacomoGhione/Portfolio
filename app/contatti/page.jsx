@@ -1,35 +1,13 @@
 import PageShell from "@/components/custom/layout/PageShell";
-import { Mail, MapPin, Phone, Clock, Contact } from "lucide-react";
-import TransitionButton from "@/components/custom/ui/TransitionButton";
 import SectionHeader from "@/components/custom/ui/SectionHeader";
 import ContactForm from "@/components/custom/sections/ContactForm";
+import { CONTACT_ITEMS } from "@/lib/constants";
 
-const contactInfo = [
-  {
-    icon: Mail,
-    label: "Email",
-    value: "giacomoghione1702@gmail.com",
-    href: "mailto:giacomoghione1702@gmail.com",
-  },
-  {
-    icon: Phone,
-    label: "Telefono",
-    value: "+39 333 739 9940",
-    href: "tel:+39 333 739 9940",
-  },
-  {
-    icon: MapPin,
-    label: "Studio",
-    value: "I Santi, Castagnole delle Lanze (AT)",
-    href: "https://maps.app.goo.gl/DhAfZ3zvLBYBi6My8",
-  },
-  {
-    icon: Clock,
-    label: "Orari",
-    value: "Lun-Ven: 8:30-19:30",
-    href: "#",
-  },
-];
+export const metadata = {
+  title: "Contatti | Giacomo Ghione",
+  description:
+    "Contattami per una consulenza nutrizionale o un programma di allenamento personalizzato ad Asti e online.",
+};
 
 export default function Contatti() {
   return (
@@ -42,7 +20,7 @@ export default function Contatti() {
       <div className="grid lg:grid-cols-2 gap-6">
         {/* Contact details */}
         <div className="flex flex-col gap-6">
-          {contactInfo.map((item, index) => (
+          {CONTACT_ITEMS.map((item) => (
             <a
               key={item.label}
               href={item.href}

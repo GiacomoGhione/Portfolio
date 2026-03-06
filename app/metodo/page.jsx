@@ -12,50 +12,16 @@ import {
   Target,
   TrendingUp,
   Volleyball,
-  ArrowRight,
 } from "lucide-react";
 import SectionHeader from "@/components/custom/ui/SectionHeader";
 import FeatureCard from "@/components/custom/ui/FeatureCard";
-import { Button } from "@/components/ui/button";
+import { METHOD_STEPS } from "@/lib/constants";
 
-const methodSteps = [
-  {
-    icon: Brain,
-    title: "Analisi iniziale",
-    description:
-      "Valutiamo insieme il tuo stato attuale, le tue abitudini e i tuoi obiettivi.",
-  },
-  {
-    icon: Target,
-    title: "Piano personalizzato",
-    description:
-      "Sviluppo un programma su misura che si adatta alla tua vita, non il contrario.",
-  },
-  {
-    icon: Apple,
-    title: "Nutrizione consapevole",
-    description:
-      "Impari a mangiare in modo sano senza rinunce drastiche, la chiave è l'equilibrio.",
-  },
-  {
-    icon: Dumbbell,
-    title: "Allenamento mirato",
-    description:
-      "Esercizi selezionati per massimizzare i risultati nel minor tempo possibile.",
-  },
-  {
-    icon: LineChart,
-    title: "Monitoraggio continuo",
-    description:
-      "Tracciamo i progressi insieme e adattiamo il piano in base ai risultati.",
-  },
-  {
-    icon: TrendingUp,
-    title: "Risultati duraturi",
-    description:
-      "Non solo raggiungi i tuoi obiettivi, ma impari a mantenerli nel tempo.",
-  },
-];
+export const metadata = {
+  title: "Il Metodo | Giacomo Ghione",
+  description:
+    "Scopri il metodo di lavoro di Giacomo Ghione: nutrizione personalizzata e allenamento su misura basati su scienza e ascolto.",
+};
 
 const bentoItems = [
   {
@@ -139,7 +105,7 @@ export default function Metodo() {
         description="Non esistono soluzioni universali. Il mio approccio si basa sulla personalizzazione totale, perché ogni persona è unica."
       />
       {/* Two column sticky layout */}
-      <div className="flex flex-col lg:flex-row gap-6 lg:gap-12 mb-20">
+      <div className="flex flex-col lg:flex-row gap-6 lg:gap-12">
         {/* Left: Sticky Philosophy box */}
         <div className="lg:w-1/2">
           <div className="lg:sticky lg:top-28">
@@ -153,7 +119,7 @@ export default function Metodo() {
 
         {/* Right: Scrolling steps */}
         <div className="lg:w-1/2 flex flex-col gap-6">
-          {methodSteps.map((step) => (
+          {METHOD_STEPS.map((step) => (
             <FeatureCard
               key={step.title}
               icon={step.icon}

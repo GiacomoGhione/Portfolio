@@ -2,23 +2,11 @@
 
 import { useState, useEffect } from "react";
 import { usePathname } from "next/navigation";
-import { AnimatePresence, motion, number } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
 
 import TransitionLink from "../ui/TransitionLink";
 import TransitionButton from "../ui/TransitionButton";
-
-const navLinks = [
-  { href: "/", label: "Home" },
-  { href: "/chi-sono", label: "Chi sono" },
-  { href: "/metodo", label: "Metodo" },
-  { href: "/servizi", label: "Servizi" },
-  { href: "/contatti", label: "Contatti" },
-];
-
-const infoLinks = [
-  { mail: "giacomo.ghione1702@gmail.com" },
-  { phone: "+39 333 739 9940" },
-];
+import { NAV_LINKS, CONTACT } from "@/lib/constants";
 
 export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -104,7 +92,7 @@ export default function Navbar() {
           <ul
             className={`hidden lg:flex h-9 items-center text-muted-foreground text-sm font-medium tracking-wide z-50 rounded-full transition-all duration-500 ${isScrolled ? "bg-card gap-2" : "gap-4"}`}
           >
-            {navLinks.map((link) => (
+            {NAV_LINKS.map((link) => (
               <li
                 key={link.href}
                 className={`h-full flex items-center justify-center px-4 rounded-full transition-all duration-500 ${
@@ -197,7 +185,7 @@ export default function Navbar() {
             >
               <div className="container px-4 min-h-dvh flex flex-col mx-auto py-16">
                 <div className="flex flex-col gap-4 flex-1 justify-center">
-                  {navLinks.map((link, index) => (
+                  {NAV_LINKS.map((link, index) => (
                     <motion.div
                       key={link.href}
                       initial={{ x: -50, opacity: 0 }}
@@ -244,16 +232,16 @@ export default function Navbar() {
                   transition={{ duration: 0.4, delay: 0.6 }}
                 >
                   <a
-                    href={`mailto:${infoLinks[0].mail}`}
+                    href={`mailto:${CONTACT.email}`}
                     className="hover:text-background transition-colors"
                   >
-                    {infoLinks[0].mail}
+                    {CONTACT.email}
                   </a>
                   <a
-                    href={`tel:${infoLinks[1].phone}`}
+                    href={`tel:${CONTACT.phone.replace(/\s/g, "")}`}
                     className="hover:text-background transition-colors"
                   >
-                    {infoLinks[1].phone}
+                    {CONTACT.phone}
                   </a>
                 </motion.div>
               </div>

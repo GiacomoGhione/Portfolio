@@ -14,23 +14,26 @@ const geistMono = Geist_Mono({
 
 export const metadata = {
   title: "Giacomo Ghione | Nutrizionista e Personal Trainer",
-  description: "Giacomo Ghione, nutrizionista e personal trainer. Piani alimentari e schede di allenamento personalizzate ad Asti e online.",
+  description:
+    "Giacomo Ghione, nutrizionista e personal trainer. Piani alimentari e schede di allenamento personalizzate ad Asti e online.",
   keywords: [
     "nutrizionista",
     "personal trainer",
     "dieta",
     "allenamento",
-    "Giacomo Ghione",
     "nutrizionista sportivo",
+    "palestra",
     "preparazione atletica",
     "Asti",
+    "Alba",
     "Castagnole delle Lanze",
+    "Giacomo Ghione",
   ],
 };
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en">
+    <html lang="it">
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
