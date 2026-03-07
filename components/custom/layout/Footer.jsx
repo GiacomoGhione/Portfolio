@@ -32,9 +32,14 @@ const contactLinks = [
 ];
 
 const legale = [
-  { label: "Privacy Policy", href: "#" },
-  { label: "Termini di Servizio", href: "#" },
-  { label: "Cookie Policy", href: "#" },
+  {
+    label: "Privacy Policy",
+    href: "https://www.iubenda.com/privacy-policy/47241989",
+  },
+  {
+    label: "Cookie Policy",
+    href: "https://www.iubenda.com/privacy-policy/47241989/cookie-policy",
+  },
 ];
 
 export default function Footer() {
@@ -107,7 +112,7 @@ export default function Footer() {
                         : {})}
                       className="flex items-center gap-2 text-background/75 hover:text-background transition-colors duration-500"
                     >
-                      <Icon className="h-4 w-4" strokeWidth={1.5} />
+                      <Icon className="h-4 w-4 shrink-0" strokeWidth={1.5} />
                       <span>{label}</span>
                     </a>
                   </li>
@@ -123,13 +128,15 @@ export default function Footer() {
           <div className="flex flex-col xl:flex-row text-center gap-4">
             <div className="flex items-center gap-4">
               {legale.map((item) => (
-                <TransitionLink
+                <a
                   key={item.label}
                   href={item.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="text-background/75 hover:text-background transition-colors duration-500"
                 >
                   {item.label}
-                </TransitionLink>
+                </a>
               ))}
             </div>
           </div>

@@ -1,4 +1,5 @@
 import { Geist, Geist_Mono } from "next/font/google";
+import Script from "next/script";
 import "./globals.css";
 import Providers from "@/components/custom/layout/Providers";
 
@@ -42,6 +43,10 @@ export default function RootLayout({ children }) {
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         <Providers>{children}</Providers>
+        <Script
+          src="https://embeds.iubenda.com/widgets/740a1d1d-f3db-4c4a-93b8-1524eff1e7d7.js"
+          strategy="lazyOnload"
+        />
       </body>
     </html>
   );
