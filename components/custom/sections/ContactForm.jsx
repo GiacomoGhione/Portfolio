@@ -17,23 +17,38 @@ export default function ContactForm() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
 
+  const [error, setError] = useState("");
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     setIsSubmitting(true);
+    setError("");
 
-    // Simulate form submission
-    await new Promise((resolve) => setTimeout(resolve, 1500));
+    try {
+      const res = await fetch("/api/send", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formState),
+      });
 
-    setIsSubmitting(false);
-    setIsSubmitted(true);
-    setFormState({ name: "", email: "", phone: "", message: "" });
+      const data = await res.json();
 
-    // Reset success message after 5 seconds
-    setTimeout(() => setIsSubmitted(false), 5000);
+      if (!res.ok) {
+        throw new Error(data.error || "Errore durante l'invio.");
+      }
+
+      setIsSubmitted(true);
+      setFormState({ name: "", email: "", phone: "", message: "" });
+      setTimeout(() => setIsSubmitted(false), 5000);
+    } catch (err) {
+      setError(err.message);
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
-    <div className="rounded-3xl border border-border bg-card p-8 overflow-hidden min-w-0">
+    <div className="rounded-3xl border border-border bg-card p-5 sm:p-8 overflow-hidden min-w-0">
       {isSubmitted ? (
         <motion.div
           className="flex flex-col items-center justify-center h-full min-h-[400px] text-center"
@@ -135,6 +150,29 @@ export default function ContactForm() {
               required
             />
           </div>
+          <div className="flex items-start gap-2">
+            <input
+              type="checkbox"
+              id="privacy"
+              required
+              className="mt-1 h-4 w-4 shrink-0 rounded border-border accent-foreground cursor-pointer"
+            />
+            <Label
+              htmlFor="privacy"
+              className="text-xs text-muted-foreground font-normal leading-relaxed cursor-pointer"
+            >
+              Ho letto e accetto la{" "}
+              <a
+                href="https://www.iubenda.com/privacy-policy/47241989"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="underline hover:text-foreground transition-colors"
+              >
+                Privacy Policy
+              </a>
+            </Label>
+          </div>
+
           <Button
             type="submit"
             size="lg"
@@ -169,6 +207,10 @@ export default function ContactForm() {
               </>
             )}
           </Button>
+
+          {error && (
+            <p className="text-red-500 text-sm text-center">{error}</p>
+          )}
         </form>
       )}
     </div>
