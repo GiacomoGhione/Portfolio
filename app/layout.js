@@ -30,22 +30,36 @@ export const metadata = {
     "Castagnole delle Lanze",
     "Giacomo Ghione",
   ],
+  openGraph: {
+    type: "website",
+    locale: "it_IT",
+    siteName: "Giacomo Ghione",
+    title: "Giacomo Ghione | Nutrizionista e Personal Trainer",
+    description:
+      "Piani alimentari e schede di allenamento personalizzate ad Asti e online.",
+  },
 };
 
 export default function RootLayout({ children }) {
   return (
     <html lang="it">
-      <meta
-        name="google-site-verification"
-        content="h3TyqNDFO07BLkgY5EdmHtBkhvl4QfZKdj0QcfPNeKo"
-      />
+      <head>
+        <script
+          type="text/javascript"
+          src="https://embeds.iubenda.com/widgets/31484d2b-7ab8-445f-9cad-0c0fce8a90bd.js"
+        ></script>
+        <meta
+          name="google-site-verification"
+          content="h3TyqNDFO07BLkgY5EdmHtBkhvl4QfZKdj0QcfPNeKo"
+        />
+      </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         <Providers>{children}</Providers>
-        <Script
-          src="https://embeds.iubenda.com/widgets/740a1d1d-f3db-4c4a-93b8-1524eff1e7d7.js"
-          strategy="lazyOnload"
+        <script
+          type="text/javascript"
+          src="https://cdn.iubenda.com/iubenda.js"
         />
       </body>
     </html>

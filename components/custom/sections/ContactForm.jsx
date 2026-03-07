@@ -163,7 +163,7 @@ export default function ContactForm() {
             >
               Ho letto e accetto la{" "}
               <a
-                href="https://www.iubenda.com/privacy-policy/47241989"
+                href="https://www.iubenda.com/privacy-policy/64509424"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="underline hover:text-foreground transition-colors"
@@ -208,9 +208,7 @@ export default function ContactForm() {
             )}
           </Button>
 
-          {error && (
-            <p className="text-red-500 text-sm text-center">{error}</p>
-          )}
+          {error && <p className="text-red-500 text-sm text-center">{error}</p>}
         </form>
       )}
     </div>

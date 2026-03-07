@@ -34,11 +34,11 @@ const contactLinks = [
 const legale = [
   {
     label: "Privacy Policy",
-    href: "https://www.iubenda.com/privacy-policy/47241989",
+    href: "https://www.iubenda.com/privacy-policy/64509424",
   },
   {
     label: "Cookie Policy",
-    href: "https://www.iubenda.com/privacy-policy/47241989/cookie-policy",
+    href: "https://www.iubenda.com/privacy-policy/64509424/cookie-policy",
   },
 ];
 
@@ -131,9 +131,10 @@ export default function Footer() {
                 <a
                   key={item.label}
                   href={item.href}
+                  className="iubenda-white iubenda-noiframe iubenda-embed text-background/75 hover:text-background transition-colors duration-500"
+                  title={item.label}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-background/75 hover:text-background transition-colors duration-500"
                 >
                   {item.label}
                 </a>

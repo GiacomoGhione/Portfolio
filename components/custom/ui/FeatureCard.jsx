@@ -51,10 +51,12 @@ export default function FeatureCard({
               {tag}
             </span>
           </div>
-          <h4 className="font-medium text-muted-foreground text-base leading-snug">
+          <h4 className="font-medium text-muted-foreground text-md mb-1 truncate">
             {title}
           </h4>
-          <p className="text-muted-foreground/70 text-sm mt-1">{description}</p>
+          <p className="text-muted-foreground/70 leading-relaxed text-sm">
+            {description}
+          </p>
         </div>
       </div>
     );
@@ -82,7 +84,7 @@ export default function FeatureCard({
   // ── Default (horizontal icon + text) ──
   return (
     <div
-      className={`group rounded-2xl bg-card p-6 transition-all duration-500 hover:shadow-lg ${className}`}
+      className={`group rounded-2xl bg-card p-6 transition-all duration-500 hover:shadow-lg overflow-hidden ${className}`}
     >
       <div className="flex items-center gap-6 min-w-0">
         <IconBadge icon={Icon} interactive />
