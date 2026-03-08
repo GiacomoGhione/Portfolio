@@ -37,6 +37,14 @@ export const metadata = {
     title: "Giacomo Ghione | Nutrizionista e Personal Trainer",
     description:
       "Piani alimentari e schede di allenamento personalizzate ad Asti e online.",
+    images: [
+      {
+        url: "/studio/og-image.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Giacomo Ghione - Nutrizionista e Personal Trainer",
+      },
+    ],
   },
 };
 
@@ -44,10 +52,6 @@ export default function RootLayout({ children }) {
   return (
     <html lang="it">
       <head>
-        <script
-          type="text/javascript"
-          src="https://embeds.iubenda.com/widgets/31484d2b-7ab8-445f-9cad-0c0fce8a90bd.js"
-        ></script>
         <meta
           name="google-site-verification"
           content="h3TyqNDFO07BLkgY5EdmHtBkhvl4QfZKdj0QcfPNeKo"
@@ -57,9 +61,9 @@ export default function RootLayout({ children }) {
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         <Providers>{children}</Providers>
-        <script
-          type="text/javascript"
+        <Script
           src="https://cdn.iubenda.com/iubenda.js"
+          strategy="lazyOnload"
         />
       </body>
     </html>

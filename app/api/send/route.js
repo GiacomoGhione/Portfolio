@@ -1,17 +1,17 @@
 import { sendNotificationEmail, sendConfirmationEmail } from "@/lib/mail";
+import { parseContactForm } from "@/lib/schemas";
 import { NextResponse } from "next/server";
 
 export async function POST(request) {
   try {
-    const { name, email, phone, message } = await request.json();
+    const body = await request.json();
+    const parsed = parseContactForm(body);
 
-    // Validazione base
-    if (!name || !email || !message) {
-      return NextResponse.json(
-        { error: "Nome, email e messaggio sono obbligatori." },
-        { status: 400 },
-      );
+    if (!parsed.success) {
+      NextResponse.json({ error: parsed.error }, { status: 400 });
     }
+
+    const { name, email, phone, message } = parsed.data;
 
     // Invia entrambe le email in parallelo
     await Promise.all([
