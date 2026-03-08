@@ -46,17 +46,17 @@ export default function Navbar() {
           {/* Logo */}
           <TransitionLink
             href="/"
-            className="w-42 text-lg font-medium tracking-wide z-50"
+            className="w-42 text-lg tracking-wide font-medium z-50"
             onClick={handleClick}
           >
             <div
-              className={`flex items-center  rounded-full py-1 font-semibold transition-all duration-500
-                ${isScrolled ? "bg-muted-foreground w-16 text-background px-4" : "w-38 bg-trasparent px-0"}
-                ${isMobileMenuOpen ? "text-background w-38 bg-transparent px-0!" : ""}`}
+              className={`flex items-center py-1.5 rounded-full transition-all duration-500
+                ${isScrolled ? "bg-muted-foreground w-16 text-background px-4" : "w-42 bg-trasparent px-0"}
+                ${isMobileMenuOpen ? "text-background w-42 bg-transparent px-0!" : ""}`}
             >
               <span className="flex items-center">
                 <span
-                  className={`text-muted-foreground transition-all duration-500
+                  className={`overflow-hidden text-muted-foreground transition-all duration-500
                     ${isScrolled ? "text-background!" : ""} 
                     ${isMobileMenuOpen ? "text-background!" : ""}`}
                 >
@@ -72,7 +72,7 @@ export default function Navbar() {
               </span>
               <span className="flex items-center">
                 <span
-                  className={`text-muted-foreground transition-all duration-500
+                  className={`overflow-hidden text-muted-foreground transition-all duration-500
                     ${isScrolled ? "text-background!" : ""} 
                     ${isMobileMenuOpen ? "text-background!" : ""}`}
                 >
@@ -90,7 +90,7 @@ export default function Navbar() {
           </TransitionLink>
           {/* Desktop menu */}
           <ul
-            className={`hidden lg:flex h-9 items-center text-muted-foreground text-sm font-medium tracking-wide z-50 rounded-full transition-all duration-500 ${isScrolled ? "bg-card gap-2" : "gap-4"}`}
+            className={`hidden lg:flex h-10 items-center text-muted-foreground text-sm font-medium tracking-wide z-50 rounded-full transition-all duration-500 ${isScrolled ? "bg-card gap-2" : "gap-4"}`}
           >
             {NAV_LINKS.map((link) => (
               <li
@@ -108,7 +108,7 @@ export default function Navbar() {
 
           {/* CTA Button - Desktop */}
           <TransitionButton
-            className="w-42 rounded-full hidden lg:inline-flex bg-muted-foreground hover:bg-muted-foreground/90 text-background font-medium tracking-wide"
+            className="w-42 h-10 rounded-full hidden lg:inline-flex bg-muted-foreground hover:bg-muted-foreground/90 text-background font-medium tracking-wide"
             href="/contatti"
           >
             Prenota consulenza
@@ -176,76 +176,86 @@ export default function Navbar() {
         {/* Mobile menu */}
         <AnimatePresence>
           {isMobileMenuOpen && (
-            <motion.div
-              className="fixed inset-0 z-40 bg-foreground lg:hidden overflow-auto scrollbar-hide"
-              initial={{ x: "-100%" }}
-              animate={{ x: 0 }}
-              exit={{ x: "-100%" }}
-              transition={{ duration: 0.75, ease: [0.76, 0, 0.24, 1] }}
-            >
-              <div className="container px-4 min-h-dvh flex flex-col mx-auto py-16">
-                <div className="flex flex-col gap-4 flex-1 justify-center">
-                  {NAV_LINKS.map((link, index) => (
+            <>
+              {/* Navbar background mask */}
+              <motion.div
+                className="fixed top-0 left-0 right-0 h-18 z-45 bg-foreground lg:hidden"
+                initial={{ x: "-100%" }}
+                animate={{ x: 0 }}
+                exit={{ x: "-100%" }}
+                transition={{ duration: 0.75, ease: [0.76, 0, 0.24, 1] }}
+              />
+              <motion.div
+                className="fixed inset-0 z-40 bg-foreground lg:hidden overflow-auto scrollbar-hide"
+                initial={{ x: "-100%" }}
+                animate={{ x: 0 }}
+                exit={{ x: "-100%" }}
+                transition={{ duration: 0.75, ease: [0.76, 0, 0.24, 1] }}
+              >
+                <div className="container px-4 min-h-dvh flex flex-col mx-auto pt-18">
+                  <div className="flex flex-col gap-4 flex-1 justify-center">
+                    {NAV_LINKS.map((link, index) => (
+                      <motion.div
+                        key={link.href}
+                        initial={{ x: -50, opacity: 0 }}
+                        animate={{ x: 0, opacity: 1 }}
+                        transition={{ duration: 0.4, delay: 0.1 + index * 0.1 }}
+                        className={`py-3 text-4xl border-b transition-colors duration-500 ${
+                          pathname === link.href
+                            ? "text-background font-medium border-background/60"
+                            : "text-background/90 border-background/15 hover:text-background hover:border-background/60"
+                        }`}
+                      >
+                        <TransitionLink
+                          href={link.href}
+                          className="block"
+                          onClick={handleClick}
+                        >
+                          {link.label}
+                        </TransitionLink>
+                      </motion.div>
+                    ))}
+
                     <motion.div
-                      key={link.href}
-                      initial={{ x: -50, opacity: 0 }}
-                      animate={{ x: 0, opacity: 1 }}
-                      transition={{ duration: 0.4, delay: 0.1 + index * 0.1 }}
-                      className={`py-3 text-4xl border-b transition-colors duration-500 ${
-                        pathname === link.href
-                          ? "text-background font-medium border-background/60"
-                          : "text-background/90 border-background/15 hover:text-background hover:border-background/60"
-                      }`}
+                      className="mt-4"
+                      initial={{ opacity: 0 }}
+                      animate={{ opacity: 1 }}
+                      transition={{ duration: 0.4, delay: 0.5 }}
                     >
-                      <TransitionLink
-                        href={link.href}
-                        className="block"
+                      <TransitionButton
+                        className="w-full rounded-full bg-background hover:bg-background/90 text-foreground font-medium tracking-wide"
+                        size="lg"
+                        href="/contatti"
                         onClick={handleClick}
                       >
-                        {link.label}
-                      </TransitionLink>
+                        <span>Prenota consulenza</span>
+                      </TransitionButton>
                     </motion.div>
-                  ))}
+                  </div>
 
+                  {/* Contact info */}
                   <motion.div
-                    className="mt-4"
+                    className="flex flex-col gap-2 text-background/75 text-sm mt-auto pt-8 pb-4"
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
-                    transition={{ duration: 0.4, delay: 0.5 }}
+                    transition={{ duration: 0.4, delay: 0.6 }}
                   >
-                    <TransitionButton
-                      className="w-full rounded-full bg-background hover:bg-background/90 text-foreground font-medium tracking-wide"
-                      size="lg"
-                      href="/contatti"
-                      onClick={handleClick}
+                    <a
+                      href={`mailto:${CONTACT.email}`}
+                      className="hover:text-background transition-colors"
                     >
-                      <span>Prenota consulenza</span>
-                    </TransitionButton>
+                      {CONTACT.email}
+                    </a>
+                    <a
+                      href={`tel:${CONTACT.phone.replace(/\s/g, "")}`}
+                      className="hover:text-background transition-colors"
+                    >
+                      {CONTACT.phone}
+                    </a>
                   </motion.div>
                 </div>
-
-                {/* Contact info */}
-                <motion.div
-                  className="flex flex-col gap-2 text-background/75 text-sm mt-auto pt-8"
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  transition={{ duration: 0.4, delay: 0.6 }}
-                >
-                  <a
-                    href={`mailto:${CONTACT.email}`}
-                    className="hover:text-background transition-colors"
-                  >
-                    {CONTACT.email}
-                  </a>
-                  <a
-                    href={`tel:${CONTACT.phone.replace(/\s/g, "")}`}
-                    className="hover:text-background transition-colors"
-                  >
-                    {CONTACT.phone}
-                  </a>
-                </motion.div>
-              </div>
-            </motion.div>
+              </motion.div>
+            </>
           )}
         </AnimatePresence>
       </nav>
