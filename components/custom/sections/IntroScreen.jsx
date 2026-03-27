@@ -2,17 +2,16 @@
 
 import { useState, useEffect } from "react";
 import { motion, useAnimationControls } from "framer-motion";
+import useScrollLock from "@/hooks/useScrollLock";
 
 const EASE = [0.76, 0, 0.24, 1];
 
 export default function IntroScreen() {
   const [visible, setVisible] = useState(true);
   const controls = useAnimationControls();
+  useScrollLock(visible);
 
   useEffect(() => {
-    document.documentElement.style.overflow = "hidden";
-    document.documentElement.style.scrollbarGutter = "stable";
-
     const cx = innerWidth / 2;
     const cy = innerHeight / 2;
     const r = Math.ceil(Math.hypot(innerWidth, innerHeight));
@@ -24,9 +23,6 @@ export default function IntroScreen() {
         clipPath: `circle(0px at ${cx}px ${cy}px)`,
         transition: { duration: 1, ease: EASE },
       });
-      document.documentElement.style.overflow = "";
-      document.documentElement.style.scrollbarGutter = "";
-
       setVisible(false);
     }, 1000);
 

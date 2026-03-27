@@ -3,6 +3,7 @@
 import { motion, useAnimationControls } from "framer-motion";
 import { usePageTransition } from "@/context/TransitionContext";
 import { useEffect } from "react";
+import useScrollLock from "@/hooks/useScrollLock";
 
 const EASE = [0.76, 0, 0.24, 1];
 
@@ -15,6 +16,7 @@ function getMaxRadius(x, y) {
 export default function CircleTransition() {
   const { phase, clickPos, onCoverDone, onRevealDone } = usePageTransition();
   const controls = useAnimationControls();
+  useScrollLock(phase !== "idle");
 
   useEffect(() => {
     if (phase === "idle") return;
@@ -26,17 +28,11 @@ export default function CircleTransition() {
     const anim = { transition: { duration: 0.8, ease: EASE } };
 
     if (phase === "covering") {
-      document.documentElement.style.overflow = "hidden";
-      document.documentElement.style.scrollbarGutter = "stable";
-
       controls.set({ clipPath: zero });
       controls.start({ clipPath: full, ...anim }).then(onCoverDone);
     } else {
       controls.set({ clipPath: full });
       controls.start({ clipPath: zero, ...anim }).then(() => {
-        document.documentElement.style.overflow = "";
-        document.documentElement.style.scrollbarGutter = "";
-
         onRevealDone();
       });
     }

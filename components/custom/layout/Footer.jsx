@@ -51,20 +51,19 @@ export default function Footer() {
         {/* Top row */}
         <div className="grid grid-cols-1 xl:grid-cols-2 gap-12 mt-4">
           {/* First col */}
-          <div className="flex flex-col gap-4">
+          <div className="flex flex-col gap-2">
             <TransitionLink
               href="/"
-              className="text-3xl font-bold tracking-wide"
+              className="text-3xl font-bold tracking-wide -ml-px"
             >
               Giacomo Ghione
             </TransitionLink>
             <p className="text-md leading-relaxed">
-              Il tuo nutrizionista e Personal Trainer. Aiuto le persone a
-              raggiungere i loro obiettivi di salute e benessere attraverso
-              piani alimentari personalizzati e programmi di allenamento su
-              misura.
+              Nutrizionista e personal trainer: ti accompagno nel raggiungimento
+              dei tuoi obiettivi di salute e forma fisica con strategie
+              nutrizionali e programmi di allenamento personalizzati.
             </p>
-            <div className="flex items-center gap-4">
+            <div className="flex items-center gap-4 mt-2">
               {SOCIAL_LINKS.map(({ icon: Icon, href, label }) => (
                 <a
                   key={label}

@@ -13,7 +13,7 @@ export default function LogosBanner() {
         <div className="flex overflow-hidden">
           <motion.div
             className="flex shrink-0 gap-8"
-            animate={{ x: ["0%", "-50%"] }}
+            animate={{ x: ["0%", "-25%"] }}
             transition={{
               duration: 25,
               repeat: Infinity,
@@ -25,7 +25,7 @@ export default function LogosBanner() {
                 key={i}
                 className="shrink-0 font-medium font-sans leading-tight tracking-tight text-5xl lg:text-6xl xl:text-7xl text-foreground whitespace-nowrap"
               >
-                Prenota subito un appuntamento e trasforma il tuo corpo.
+                Trasforma il tuo corpo.
               </span>
             ))}
           </motion.div>

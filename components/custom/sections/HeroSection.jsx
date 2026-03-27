@@ -28,9 +28,9 @@ export default function HeroSection() {
         </h1>
 
         {/* Description */}
-        <p className="font-sans text-lg leading-relaxed text-balance tracking-wide text-muted-foreground z-40 -mt-2 lg:mt-0">
-          Sono un nutrizionista e personal trainer, insieme raggiungeremo
-          risultati concreti e duraturi nel tempo.
+        <p className="font-sans text-lg lg:text-xl leading-relaxed text-balance tracking-wide text-muted-foreground z-40 -mt-2 lg:mt-0">
+          Nutrizione e allenamento lavorano insieme: ti guiderò verso risultati
+          concreti, duraturi e costruiti su misura per te.
         </p>
 
         {/* CTA Buttons */}

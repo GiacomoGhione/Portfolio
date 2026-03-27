@@ -14,6 +14,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata = {
+  metadataBase: "https://giacomoghione.it",
   title: "Giacomo Ghione | Nutrizionista e Personal Trainer",
   description:
     "Giacomo Ghione, nutrizionista e personal trainer. Piani alimentari e schede di allenamento personalizzate ad Asti e online.",

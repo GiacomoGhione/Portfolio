@@ -11,30 +11,16 @@ export const metadata = {
 
 const activities = [
   {
-    title: "Ambiente professionale e accogliente",
-    description:
-      "Uno spazio studiato per mettere a proprio agio, con un design moderno e funzionale che riflette la mia filosofia di lavoro: professionalità senza rinunciare al calore umano.",
-    image: "/studio/postazione-principale.jpg",
-    alt: "Postazione principale per consulenze nutrizionali",
-  },
-  {
-    title: "Strumenti professionali",
-    description:
-      "Monitoraggio costante della composizione corporea con strumenti professionali. Plicometria, circonferenze e analisi per tracciare i tuoi progressi reali.",
-    image: "/studio/attrezzature.jpg",
-    alt: "Attrezzature per valutazione composizione corporea",
-  },
-  {
     title: "Area consulenza privata",
     description:
-      "Spazio dedicato al tuo benessere, dove ogni dettaglio è pensato per offrirti un'esperienza di consulenza nutrizionale confortevole e riservata.",
+      "Uno spazio che riflette la mia filosofia di lavoro, professionalità senza rinunciare al calore umano. Ogni dettaglio è pensato per metterti a proprio agio e offrirti un'esperienza di consulenza nutrizionale confortevole e riservata.",
     image: "/studio/area-consulenza.jpg",
     alt: "Area consulenza privata",
   },
   {
     title: "Cura dei dettagli in ogni aspetto",
     description:
-      "Affronteremo ogni aspetto del tuo percorso con la massima attenzione, perché credo che siano i dettagli a fare la differenza tra un buon piano e un piano eccellente.",
+      "Affronteremo ogni aspetto del tuo percorso con la massima attenzione, perché credo che siano i dettagli a fare la differenza tra un buon piano e un piano eccellente. Monitoreremo costantemente la composizione corporea con strumenti professionali. Plicometria, circonferenze e analisi per tracciare i tuoi progressi.",
     image: "/studio/dettaglio.jpg",
     alt: "Dettaglio dello studio nutrizionista",
   },
@@ -54,7 +40,7 @@ export default function ChiSono() {
       <SectionHeader
         label="Il mio studio"
         title="Dove la trasformazione prende forma"
-        description="Un ambiente professionale e accogliente che riflette la mia filosofia di lavoro, ogni dettaglio è pensato per offrirti un'esperienza confortevole e riservata."
+        description="Da qui inizia il tuo percorso verso una vita più sana e attiva, non solo con piani personalizzati, ma con un supporto completo e professionale."
       />
       {activities.map((activity, index) => (
         <ActivityCard key={activity.title} activity={activity} index={index} />

@@ -1,5 +1,7 @@
+"use client";
+
 import SectionHeader from "@/components/custom/ui/SectionHeader";
-import FeatureCard from "@/components/custom/ui/FeatureCard";
+import { ExpandableCard } from "@/components/ui/expandable-card";
 import CTAButton from "@/components/custom/ui/CTAButton";
 import { METHOD_STEPS } from "@/lib/constants";
 
@@ -13,12 +15,12 @@ export default function MethodPreview() {
       />
       <div className="grid lg:grid-cols-3 gap-6">
         {METHOD_STEPS.map((step) => (
-          <FeatureCard
+          <ExpandableCard
             key={step.title}
             icon={step.icon}
             title={step.title}
             description={step.description}
-          />
+          ></ExpandableCard>
         ))}
       </div>
       <div className="flex justify-center pt-8">

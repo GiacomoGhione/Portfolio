@@ -1,3 +1,5 @@
+import { cn } from "@/lib/utils";
+
 export default function SectionHeader({
   label,
   title,
@@ -15,7 +17,12 @@ export default function SectionHeader({
         {title}
       </h2>
       {description && (
-        <p className="font-sans text-lg lg:text-xl leading-relaxed">
+        <p
+          className={cn(
+            "font-sans text-lg lg:text-xl leading-relaxed",
+            className,
+          )}
+        >
           {description}
         </p>
       )}

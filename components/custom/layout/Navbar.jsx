@@ -7,30 +7,24 @@ import { AnimatePresence, motion } from "framer-motion";
 import TransitionLink from "../ui/TransitionLink";
 import TransitionButton from "../ui/TransitionButton";
 import { NAV_LINKS, CONTACT } from "@/lib/constants";
+import useScrollLock from "@/hooks/useScrollLock";
 
 export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const pathname = usePathname();
+  useScrollLock(isMobileMenuOpen);
 
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 25);
     };
 
-    if (isMobileMenuOpen) {
-      document.body.style.overflow = "hidden";
-      document.documentElement.style.overflow = "hidden";
-      document.documentElement.style.scrollbarGutter = "stable";
-    } else {
-      document.body.style.overflow = "";
-      document.documentElement.style.overflow = "";
-      document.documentElement.style.scrollbarGutter = "";
-    }
+    handleScroll();
 
     window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
-  }, [isMobileMenuOpen]);
+  }, []);
 
   const handleClick = () => {
     setTimeout(() => {
@@ -117,6 +111,9 @@ export default function Navbar() {
           {/* Mobile menu button */}
           <motion.button
             type="button"
+            aria-label={isMobileMenuOpen ? "Chiudi menu" : "Apri menu"}
+            aria-expanded={isMobileMenuOpen}
+            aria-controls="mobile-navigation"
             className={`flex h-10 w-10 items-center justify-center rounded-full lg:hidden transition-colors duration-500 z-50
                 ${isMobileMenuOpen ? "bg-background" : "bg-muted-foreground text-background"}`}
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
@@ -186,6 +183,7 @@ export default function Navbar() {
                 transition={{ duration: 0.75, ease: [0.76, 0, 0.24, 1] }}
               />
               <motion.div
+                id="mobile-navigation"
                 className="fixed inset-0 z-40 bg-foreground lg:hidden overflow-auto scrollbar-hide"
                 initial={{ x: "-100%" }}
                 animate={{ x: 0 }}

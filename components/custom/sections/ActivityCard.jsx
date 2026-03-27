@@ -15,7 +15,7 @@ export default function ActivityCard({ activity, index }) {
   return (
     <div
       ref={cardRef}
-      className={`grid gap-8 lg:gap-12 items-center ${
+      className={`grid gap-8 lg:gap-16 items-center ${
         index % 2 === 1
           ? "lg:grid-cols-[1fr_1.2fr]"
           : "lg:grid-cols-[1.2fr_1fr]"
@@ -23,7 +23,7 @@ export default function ActivityCard({ activity, index }) {
     >
       {/* Image */}
       <div
-        className={`relative aspect-[4/3] overflow-hidden rounded-2xl bg-muted ${
+        className={`relative aspect-4/3 overflow-hidden rounded-2xl bg-muted ${
           index % 2 === 1 ? "lg:order-2" : ""
         }`}
       >
@@ -33,19 +33,18 @@ export default function ActivityCard({ activity, index }) {
             alt={activity.alt}
             fill
             className="object-cover scale-110"
-            priority={false}
           />
         </motion.div>
-        <div className="absolute inset-0 bg-gradient-to-t from-foreground/10 to-transparent" />
+        <div className="absolute inset-0 bg-linear-to-t from-foreground/10 to-transparent" />
       </div>
 
       {/* Text */}
       <div className={index % 2 === 1 ? "lg:order-1" : ""}>
-        <h3 className="font-sans font-medium text-2xl lg:text-3xl mb-3 text-muted-foreground">
+        <h3 className="font-sans font-medium text-3xl lg:text-4xl mb-3 text-muted-foreground">
           {activity.title}
         </h3>
-        <div className="w-18 h-px bg-muted-foreground/75 mb-4" />
-        <p className="text-muted-foreground/70 leading-relaxed text-base lg:text-lg">
+        <div className="w-20 h-px bg-muted-foreground mb-4" />
+        <p className="text-muted-foreground/90 leading-relaxed text-lg lg:text-xl">
           {activity.description}
         </p>
       </div>

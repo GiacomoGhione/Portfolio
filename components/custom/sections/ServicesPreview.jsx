@@ -1,5 +1,7 @@
+"use client";
+
 import SectionHeader from "@/components/custom/ui/SectionHeader";
-import FeatureCard from "@/components/custom/ui/FeatureCard";
+import { ExpandableCard } from "@/components/ui/expandable-card";
 import CTAButton from "@/components/custom/ui/CTAButton";
 import { SERVICES_PREVIEW } from "@/lib/constants";
 
@@ -13,13 +15,12 @@ export default function ServicesPreview() {
       />
       <div className="grid gap-6 lg:grid-cols-3">
         {SERVICES_PREVIEW.map((service) => (
-          <FeatureCard
+          <ExpandableCard
             key={service.title}
             icon={service.icon}
             title={service.title}
             description={service.description}
-            variant="bento"
-          />
+          ></ExpandableCard>
         ))}
       </div>
       <div className="flex justify-center pt-8">
