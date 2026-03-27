@@ -33,7 +33,7 @@ export default function ChiSono() {
       <SectionHeader
         label="Esperienza & Formazione"
         title="Competenza costruita nel tempo"
-        description="Anni di studio, pratica e aggiornamento continuo per offrirti il meglio della scienza della nutrizione e dell'allenamento."
+        description="Più di 10 anni di esperienza nel settore, con una formazione continua che mi permette di offrire sempre il meglio ai miei clienti."
       />
       <ExperienceTimeline />
       {/* Studio cards */}
@@ -42,9 +42,15 @@ export default function ChiSono() {
         title="Dove la trasformazione prende forma"
         description="Da qui inizia il tuo percorso verso una vita più sana e attiva, non solo con piani personalizzati, ma con un supporto completo e professionale."
       />
-      {activities.map((activity, index) => (
-        <ActivityCard key={activity.title} activity={activity} index={index} />
-      ))}
+      <div className="grid gap-8 lg:gap-12">
+        {activities.map((activity, index) => (
+          <ActivityCard
+            key={activity.title}
+            activity={activity}
+            index={index}
+          />
+        ))}
+      </div>
     </PageShell>
   );
 }

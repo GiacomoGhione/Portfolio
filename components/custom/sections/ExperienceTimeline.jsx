@@ -2,7 +2,7 @@
 
 import { useRef } from "react";
 import { motion, useScroll, useSpring } from "framer-motion";
-import { GraduationCap, BookOpen, Medal, Award } from "lucide-react";
+import { GraduationCap, Medal } from "lucide-react";
 import { ExpandableCard } from "@/components/ui/expandable-card";
 
 const credentials = [
@@ -19,12 +19,6 @@ const credentials = [
     tag: "Formazione",
   },
   {
-    icon: BookOpen,
-    title: "Specializzazione in Nutrizione Sportiva",
-    description: "Approfondimento scientifico sull'alimentazione",
-    tag: "Specializzazione",
-  },
-  {
     icon: Medal,
     title: "Certificazione Weightlifting Rawtraining",
     description:
@@ -37,13 +31,6 @@ const credentials = [
     description:
       "Abilitazione professionale alla preparazione nel powerlifting",
     tag: "Certificazione",
-  },
-  {
-    icon: Award,
-    title: "Esperienza in palestra",
-    description:
-      "Più di 10 anni di esperienza pratica con clienti di ogni livello",
-    tag: "Esperienza",
   },
 ];
 
